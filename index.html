@@ -119,14 +119,19 @@ dialog[open]{animation:din .2s ease both}dialog::backdrop{animation:fin .2s ease
   <div class="row" style="margin-top:8px"><button class="lk" id="impB">Importieren</button><span class="note" id="impM"></span></div>
  </div>
  <div class="box" id="gdpBox" style="margin-top:14px"><h3 style="margin-top:0">GDDP-Daten importieren (Tags und Skills)</h3>
-  <p class="note">Ergänzt die Skillprofile deiner Demons um GDDP-Tags und -Skills. Die Quellen bleiben getrennt und sind überall gekennzeichnet: <span class="sc gddl">GDDL</span> <span class="sc gddp">GDDP</span> <span class="sc man">manuell</span> <span class="sc cur">kuratiert</span>. Zugeordnet wird über die Geometry-Dash-Level-ID, ein Name zählt nur, wenn der Datensatz keine ID hat oder das Level in deiner Datenbank keine eigene ID besitzt und der Name eindeutig ist. Manuell angepasste Skillprofile werden nie ungefragt überschrieben, bei Abweichungen entscheidest du in der Konfliktprüfung. Skala: 0 = Skill kommt im Level nicht vor, 1–10 = Stärke.</p>
-  <details><summary>Unterstützte Formate</summary><p class="note"><b>JSON:</b> Liste von Leveln (oder ein Objekt mit levels, demons oder data). Je Level: id (Level-ID), name, dazu skillsets bzw. skills als Liste <code>[{"name":"Wave","xp":120}]</code>, als Objekt <code>{"Wave":120}</code> oder als Text <code>Wave: 120; Timing: 80</code>, optional tags. <b>CSV</b> (Trenner Komma, Semikolon oder Tab, Kopfzeile nötig): Spalten id, name, skillsets, tags, oder eine Spalte je Skill (Wave, Ship, Timing …) mit Zahlen. Ohne Stärkeangabe gilt ein bekannter Skill pauschal als 5/10, andere Namen werden als Tag gespeichert. Alles Unlesbare wird übersprungen und in der Vorschau aufgelistet, bestehende Daten bleiben dabei unberührt.</p></details>
-  <div class="g" style="margin-top:8px;gap:10px"><div><label>Datei</label><input type="file" id="gdpF" accept=".json,.csv,.tsv,.txt"></div><div><label>Umrechnung auf 1–10</label><select id="gdpS" class="inp" style="width:100%"><option value="auto">Automatisch (Werte bis 10 bleiben, sonst XP umrechnen)</option><option value="all">XP global umrechnen</option><option value="per">XP je Skill umrechnen</option><option value="ten">Werte sind bereits 1–10</option></select></div></div>
+  <p class="note">Ergänzt die Skillprofile deiner Demons um GDDP-Tags und -Skills. Die Quellen bleiben getrennt und sind überall gekennzeichnet: <span class="sc gddl">GDDL</span> <span class="sc gddp">GDDP</span> <span class="sc man">manuell</span> <span class="sc cur">kuratiert</span>. Zugeordnet wird über die Geometry-Dash-Level-ID. Ein Name zählt nur für Datensätze ganz ohne ID. Manuell angepasste Skillprofile werden nie ungefragt überschrieben, bei Abweichungen entscheidest du in der Konfliktprüfung. Skala: 0 = Skill kommt im Level nicht vor, 1–10 = Stärke.</p>
+  <details open><summary>Unterstützte Formate</summary><p class="note"><b>Original-GDDP-Datei</b> (JSON mit level-data und skillset-data): wird direkt erkannt. Gelesen werden je Level die Level-ID, die Skillsets (als Tags) und die Skill-XP (0–3). Packs (main, legacy, bonus, monthly), Medaillen und Sprites werden ignoriert. <b>Andere JSON-Formate:</b> Liste von Leveln (oder ein Objekt mit levels, demons oder data). Je Level: id (Level-ID), name, dazu skillsets bzw. skills als Liste <code>[{"name":"Wave","xp":120}]</code>, als Objekt <code>{"Wave":120}</code> oder als Text <code>Wave: 120; Timing: 80</code>, optional tags. <b>CSV</b> (Trenner Komma, Semikolon oder Tab, Kopfzeile nötig): Spalten id, name, skillsets, tags, oder eine Spalte je Skill (Wave, Ship, Timing …) mit Zahlen. Ohne Stärkeangabe gilt ein bekannter Skill pauschal als 5/10, andere Namen werden als Tag gespeichert. Alles Unlesbare wird übersprungen und in der Vorschau aufgelistet, bestehende Daten bleiben dabei unberührt.</p></details>
+  <div class="g" style="margin-top:8px;gap:10px"><div><label>Datei</label><input type="file" id="gdpF" accept=".json,.csv,.tsv,.txt"></div><div><label>Umrechnung auf 1–10</label><select id="gdpS" class="inp" style="width:100%"><option value="auto">Automatisch (GDDP-Datei wird erkannt)</option><option value="gddp">GDDP-Original (0–3 auf 0–10)</option><option value="all">XP global umrechnen</option><option value="per">XP je Skill umrechnen</option><option value="ten">Werte sind bereits 1–10</option></select></div></div>
   <textarea id="gdpT" rows="3" placeholder="Oder GDDP-Daten (JSON oder CSV) hier einfügen …"></textarea>
   <div class="row" style="margin-top:8px"><button class="lk" id="gdpP">Vorschau erstellen</button><span class="note" id="gdpM"></span></div>
   <div id="gdpV"></div>
   <div id="gdpU" class="note" style="margin-top:12px"></div>
  </div>
+ <div class="box" id="popBox" style="margin-top:14px"><h3 style="margin-top:0">Bekanntheit: Downloadzahlen importieren</h3>
+  <p class="note">Für die Sortierung der Demon-Liste nach Bekanntheit. Verwendet werden nur echte, importierte Werte, Level ohne Wert stehen bei dieser Sortierung am Ende. Zugeordnet wird über die Level-ID, ein erneuter Import überschreibt nur die Werte derselben ID.</p>
+  <details><summary>Downloadzahlen holen (Konsole auf gdbrowser.com)</summary><p class="note">1. „Skript erzeugen und kopieren“ klicken (es enthält die IDs deiner Level). 2. gdbrowser.com öffnen, F12, Konsole, Skript einfügen und warten (je nach Anzahl 10 bis 40 Minuten). Es lädt gd-downloads.json herunter. 3. Die Datei hier importieren. Hinweis: Das Skript konnte ich hier nicht gegen die echte Seite testen. Wenn es nicht klappt, genügt jede JSON- oder CSV-Datei mit den Feldern id und downloads.</p><div class="row"><button class="lk" id="popG">Skript erzeugen und kopieren</button></div><textarea id="popS" rows="3" readonly placeholder="Das Skript erscheint hier"></textarea></details>
+  <div class="row" style="margin-top:8px"><input type="file" id="popF" accept=".json,.csv,.txt"></div><textarea id="popT" rows="2" placeholder="Oder JSON/CSV einfügen (Felder: id, downloads) …"></textarea>
+  <div class="row" style="margin-top:8px"><button class="lk" id="popB">Importieren</button><span class="note" id="popM"></span></div><div id="popU" class="note" style="margin-top:10px"></div></div>
  <div class="box" style="margin-top:14px"><h3 style="margin-top:0">So funktioniert der Algorithmus</h3><ol>
   <li>Die Schwierigkeit kommt aus der Demonlist-Platzierung (logarithmisch), bei Leveln ohne Rang aus dem GDDL-Tier. Daraus folgt die Anzahl der Zwischenlevel.</li>
   <li>Aus dem Skillprofil des Ziels entsteht ein Gewicht je Fähigkeit (quadratisch, damit Kernskills dominieren).</li>
@@ -138,7 +143,7 @@ dialog[open]{animation:din .2s ease both}dialog::backdrop{animation:fin .2s ease
 <section id="quest" class="hid"><div id="qC"></div></section>
 <section id="prof" class="hid"><div id="profC"></div></section>
 <section id="all" class="hid">
- <div class="box"><div class="row"><input id="alQ" class="inp" placeholder="Level suchen …" style="flex:1;min-width:160px"><select id="alS" class="inp"></select><button class="lk" id="alD" title="Reihenfolge">↓</button><label class="ck"><input type="checkbox" id="alP"> Nur mit Skillprofil</label></div><div class="note" id="alC" style="margin-top:8px"></div></div>
+ <div class="box"><div class="row"><input id="alQ" class="inp" placeholder="Level suchen …" style="flex:1;min-width:160px"><select id="alS" class="inp"></select><button class="lk" id="alD" title="Reihenfolge">↓</button><label class="ck"><input type="checkbox" id="alP"> Nur mit Skillprofil</label></div><div class="row" id="alF" style="margin-top:10px" role="group" aria-label="Demon-Difficulty filtern"></div><div class="row" style="margin-top:8px"><label class="note" style="margin:0;text-transform:none;letter-spacing:0">Skill <select id="alSk" class="inp"></select></label><label class="note" style="margin:0;text-transform:none;letter-spacing:0">mindestens <select id="alSm" class="inp"></select></label></div><div class="note" id="alC" style="margin-top:8px"></div></div>
  <div id="alL" style="margin-top:12px"></div>
 </section>
 <dialog id="dlg"></dialog><dialog id="dlg2"></dialog>
@@ -151,7 +156,7 @@ const KV=(()=>{let db=null;
  const get=k=>db?new Promise(res=>{try{const q=db.transaction("kv").objectStore("kv").get(k);q.onsuccess=()=>res(q.result==null?null:q.result);q.onerror=()=>res(null)}catch(e){res(null)}}):Promise.resolve((()=>{try{return localStorage.getItem(k)}catch(e){return null}})());
  const set=(k,v)=>db?new Promise(res=>{try{const t=db.transaction("kv","readwrite");t.objectStore("kv").put(v,k);t.oncomplete=()=>res(true);t.onerror=()=>res(false);t.onabort=()=>res(false)}catch(e){res(false)}}):Promise.resolve((()=>{try{localStorage.setItem(k,v);return true}catch(e){return false}})());
  return{open,get,set,has:()=>!!db}})();
-const BIG=["gdapi","gddm","gdgd","gdtag","gdimp","gdchal","gddp","gdman"],DATA={};
+const BIG=["gdapi","gddm","gdgd","gdtag","gdimp","gdchal","gddp","gdman","gdpop"],DATA={};
 await KV.open();
 for(const k of BIG){let v=await KV.get(k);if(v==null&&KV.has()){let old=null;try{old=localStorage.getItem(k)}catch(e){}if(old!=null){if(await KV.set(k,old)){try{localStorage.removeItem(k)}catch(e){}}v=old}}DATA[k]=v}
 
@@ -289,7 +294,7 @@ $("out").addEventListener("change",e=>{const c=e.target.dataset.c;if(c!=null){co
 $("out").addEventListener("click",e=>{const d=e.target.closest("[data-d]");if(d)detail(L[d.dataset.d])});
 function detail(l){const q=encodeURIComponent(l.n+" Geometry Dash");$("dlg").innerHTML=`<div style="aspect-ratio:260/150;max-height:240px;overflow:hidden;position:relative">${cover(l,2)}${thumb(l)}</div><div style="padding:16px"><h3 style="margin:0 0 6px">${esc(l.n)} ${badge(l)}</h3>
  ${profileHtml(l)}
- <p class="note">Song: ${esc(l.song||"unbekannt")} · Dauer: ${l.len?Math.floor(l.len/60)+":"+String(l.len%60).padStart(2,"0"):"unbekannt"} · Enjoyment: ${l.e!=null?l.e:"unbekannt"} · Level-ID: ${l.gid||"unbekannt"} · Objekte: ${l.ob?l.ob.toLocaleString("de-DE"):"unbekannt"} · Ersteller: ${esc(l.cr||"unbekannt")}.${l.s.some(x=>x)?"":" Kein Skillprofil hinterlegt."}${l.top?" GDDL-Haupt-Tag: "+l.top+(l.pt?" (Skillprofil daraus abgeleitet, nur ein Skill).":"."):""}</p>
+ <p class="note">Song: ${esc(l.song||"unbekannt")} · Dauer: ${l.len?Math.floor(l.len/60)+":"+String(l.len%60).padStart(2,"0"):"unbekannt"} · Enjoyment: ${l.e!=null?l.e:"unbekannt"} · Level-ID: ${l.gid||"unbekannt"} · Demon-Difficulty: ${clsOf(l)||"unbekannt"} · Downloads: ${l.dl!=null?l.dl.toLocaleString("de-DE"):"unbekannt"} · Objekte: ${l.ob?l.ob.toLocaleString("de-DE"):"unbekannt"} · Ersteller: ${esc(l.cr||"unbekannt")}.${l.s.some(x=>x)?"":" Kein Skillprofil hinterlegt."}${l.top?" GDDL-Haupt-Tag: "+l.top+(l.pt?" (Skillprofil daraus abgeleitet, nur ein Skill).":"."):""}</p>
  <div class="row"><a class="lk" target="_blank" rel="noopener" href="${esc(l.vid||"https://www.youtube.com/results?search_query="+q)}">${l.vid?"Verifikation ansehen":"Gameplay auf YouTube suchen"}</a><a class="lk" target="_blank" rel="noopener" href="https://gdladder.com/">GDDL öffnen</a><button class="lk" onclick="dlg.close();editProfile(L[${l.id}])">Skillprofil bearbeiten</button><button class="lk" onclick="dlg.close();startTraining(L[${l.id}])">Training starten</button><button class="lk" onclick="dlg.close();askDone(L[${l.id}])">Als geschafft eintragen</button><button class="lk" onclick="dlg.close()">Schließen</button></div></div>`;$("dlg").showModal()}
 document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>{document.querySelectorAll("nav button").forEach(x=>x.classList.toggle("on",x==b));["road","train","quest","prof","all","info"].forEach(id=>$(id).classList.toggle("hid",id!=b.dataset.t));if(b.dataset.t=="train")renderTrain();if(b.dataset.t=="quest")renderQuests();if(b.dataset.t=="all")renderAll();if(b.dataset.t=="prof")renderProf();if(b.dataset.t=="info")renderSet()});
 const TM={wave:0,ship:1,cube:2,ball:3,ufo:4,robot:5,spider:5,swing:6,timings:7,precision:8,"fast paced":9,"fast-paced":9,memory:10,dual:11};
@@ -346,8 +351,8 @@ const uniq=a=>[...new Set(a)];
 const GA=new Map(Object.entries({wave:0,ship:1,cube:2,ball:3,ufo:4,robot:5,spider:5,robotspider:5,swing:6,swingcopter:6,timing:7,timings:7,clicktiming:7,flow:7,precision:8,nervecontrol:8,nerve:8,chokepoint:8,chokepoints:8,fastpaced:9,highcps:9,cps:9,clickspeed:9,spam:9,memory:10,learny:10,dual:11,duals:11}));
 const GRX=[[/wave/,0],[/swing/,6],[/ship/,1],[/cube/,2],[/ball/,3],[/ufo/,4],[/robot|spider/,5],[/timing/,7],[/precis|nerve|choke/,8],[/cps|click|spam|fast/,9],[/memor|learn/,10],[/dual/,11]];
 const gSlot=name=>{const n=normK(name);if(GA.has(n))return GA.get(n);for(const[r,i]of GRX)if(r.test(n))return i;return -1};
-let GS=new Map(),MS=new Map();            // GDDP-Datensätze (Schlüssel: g<ID> oder n<name>), manuelle Profile (Schlüssel wie lk())
-function cleanRec(r){if(!r||typeof r!="object")return null;const o={id:ni(r.id,1,2e9,null),n:cln(r.n,80),tg:[],sk:{},rx:{},pr:[]};
+let GS=new Map(),MS=new Map(),POP=new Map();            // GDDP-Datensätze (Schlüssel: g<ID> oder n<name>), manuelle Profile (Schlüssel wie lk())
+function cleanRec(r){if(!r||typeof r!="object")return null;const o={id:ni(r.id,1,2e9,null),n:cln(r.n,80),tg:[],sk:{},rx:{},pr:[],tr:ni(r.tr,0,99,null)};
  if(Array.isArray(r.tg))o.tg=uniq(r.tg.map(x=>cln(x,40)).filter(Boolean)).slice(0,30);
  if(Array.isArray(r.pr))o.pr=uniq(r.pr.map(x=>cln(x,40)).filter(Boolean)).slice(0,30);
  if(r.sk&&typeof r.sk=="object")for(const[k,v]of Object.entries(r.sk).slice(0,60)){const n=cln(k,40),x=ni(v,1,10,null);if(n&&okKey(n)&&x!=null){o.sk[n]=x;const rv=nz(r.rx&&r.rx[k],0,1e9,null);if(rv!=null)o.rx[n]=rv}}
@@ -357,7 +362,8 @@ function cleanMan(r){if(!r||typeof r!="object")return null;const o={s:{},tg:[],o
  if(Array.isArray(r.tg))o.tg=uniq(r.tg.map(x=>cln(x,30)).filter(Boolean)).slice(0,12);
  if(r.ov&&typeof r.ov=="object")for(const[k,v]of Object.entries(r.ov)){const i=ni(k,0,11,null);if(i!=null&&String(i)==k&&v&&(v.d=="gddp"||v.d=="keep"))o.ov[i]={d:v.d,g:ni(v.g,0,5,0)}}
  return o}
-function parseStores(){GS=new Map();MS=new Map();
+function parseStores(){GS=new Map();MS=new Map();POP=new Map();
+ try{const o=JSON.parse(DATA.gdpop||"null");if(o&&o.m&&typeof o.m=="object")for(const[k,v]of Object.entries(o.m).slice(0,300000)){const id=ni(k,1,2e9,null),x=ni(v,0,2e10,null);if(id!=null&&x!=null)POP.set(id,x)}}catch(e){}
  try{const o=JSON.parse(DATA.gddp||"null");if(o&&o.recs&&typeof o.recs=="object")for(const[k,r]of Object.entries(o.recs).slice(0,20000)){if(!okKey(k))continue;const c=cleanRec(r);if(c)GS.set(String(k).slice(0,100),c)}}catch(e){}
  try{const o=JSON.parse(DATA.gdman||"null");if(o&&o.m&&typeof o.m=="object")for(const[k,r]of Object.entries(o.m).slice(0,20000)){if(!okKey(k))continue;const c=cleanMan(r);if(c)MS.set(String(k).slice(0,100),c)}}catch(e){}}
 const gsJSON=()=>JSON.stringify({v:1,at:Date.now(),recs:Object.fromEntries(GS)});
@@ -367,13 +373,14 @@ const msGet=l=>MS.get(lk(l))||MS.get("n"+l.n.toLowerCase())||null;
 const lvIndex=()=>{const byG=new Map(),byN=new Map();for(const l of L){if(l.gid)byG.set(l.gid,l);const k=l.n.toLowerCase();let a=byN.get(k);if(!a)byN.set(k,a=[]);a.push(l)}return{byG,byN}};
 // Zuordnung: primär Level-ID. Nur wenn die ID nicht vorkommt, zählt ein eindeutiger Name, und nur bei Leveln ohne eigene ID.
 function gMatch(r,byG,byN){if(r.id!=null&&byG.has(r.id))return{l:byG.get(r.id),by:"id"};
- if(r.n){const c=byN.get(r.n.toLowerCase());if(c&&c.length==1&&(r.id==null||!c[0].gid))return{l:c[0],by:"name"}}return null}
+ if(r.n&&r.id==null){const c=byN.get(r.n.toLowerCase());if(c&&c.length==1)return{l:c[0],by:"name"}}return null}
 const toG12=rec=>{const g=Array(12).fill(0);for(const[n,v]of Object.entries(rec.sk)){const i=gSlot(n);if(i>=0&&v>g[i])g[i]=v}return g};
-function applyLayers(){const{byG,byN}=lvIndex();
- for(const l of L){l.gsk=null;l.grx=null;l.g12=null;l.gt=null;l.gm=null;l.gpr=null}
+function applyPop(){for(const l of L){if(l.gid&&POP.has(l.gid))l.dl=POP.get(l.gid);else delete l.dl}}
+function applyLayers(){applyPop();const{byG,byN}=lvIndex();
+ for(const l of L){l.gsk=null;l.grx=null;l.g12=null;l.gt=null;l.gm=null;l.gpr=null;l.gtr=null}
  for(const r of GS.values()){const m=gMatch(r,byG,byN);if(!m)continue;const l=m.l;
   if(l.gsk){for(const[n,v]of Object.entries(r.sk))if(l.gsk[n]==null||v>l.gsk[n])l.gsk[n]=v;l.gt=uniq([...l.gt,...r.tg])}
-  else{l.gsk=Object.assign({},r.sk);l.grx=r.rx;l.gt=r.tg.slice();l.gpr=r.pr||[];l.gm=m.by}
+  else{l.gsk=Object.assign({},r.sk);l.grx=r.rx;l.gt=r.tg.slice();l.gpr=r.pr||[];l.gm=m.by;l.gtr=r.tr}
   l.g12=toG12({sk:l.gsk})}
  for(const l of L){l.man=msGet(l);resolve(l)}}
 function resolve(l){const b=l.s0||ZERO12,td=l.td||ZERO12,man=l.man,g12=l.g12,s=Array(12).fill(0),ss=Array(12).fill("");let any=false,onlyG=true;
@@ -399,9 +406,10 @@ function profileHtml(l){const hasG=!!l.g12;
   return `<div><span>${esc(k)}</span><div class="bar"><i style="width:${v*20}%"></i></div><small>${LB[v]}</small>${src?`<em class="sc ${src}">${SRCN[src]}</em>`:""}${hasG?`<em class="sc gddp" title="GDDP-Wert, Skala 0–10 (0 = kommt nicht vor)">GDDP ${g}/10</em>`:""}</div>`}).join("");
  const extra=l.gsk?Object.entries(l.gsk).filter(([n])=>gSlot(n)<0).sort((a,b)=>b[1]-a[1]):[];
  const gd=extra.length?`<div class="note" style="margin:10px 0 4px"><b>Weitere GDDP-Skillsets</b> (Skala 1–10${l.gm=="name"?"; Zuordnung per Namen":""})</div><div class="sk dsk" style="grid-template-columns:1fr">${extra.map(([n,v])=>`<div><span style="width:auto;min-width:96px">${esc(n)}</span><div class="bar"><i style="width:${v*10}%"></i></div><small>${v}/10</small><em class="sc gddp">GDDP</em></div>`).join("")}</div>`:"";
- const pr=l.gpr&&l.gpr.length?`<div class="note" style="margin-top:6px">GDDP nennt ${l.gpr.map(esc).join(", ")} ohne Stärke. Dafür wird pauschal 5/10 angesetzt.</div>`:"";
+ const pr=l.gpr&&l.gpr.length?`<div class="note" style="margin-top:6px">GDDP nennt ${l.gpr.map(n=>esc(n)+" ("+(l.gsk[n]!=null?l.gsk[n]:"?")+"/10)").join(", ")} nur als Skillset, ohne eigenen XP-Wert. Der Wert ist der GDDP-Durchschnitt für gelistete Skillsets.</div>`:"";
  const tg=tagsOf(l),tags=tg.length?`<div class="rt" style="margin-top:8px">${tg.map(x=>`<span class="tg sc ${x.src}" title="Quelle: ${SRCN[x.src]}">${esc(x.t)}</span>`).join("")}</div>`:"";
- return `<div class="sk dsk" style="grid-template-columns:1fr">${rows}</div>${gd}${pr}${tags}`}
+ const tr=l.gtr!=null?`<div class="note" style="margin-top:6px">GDDP-Stufe: <b>${l.gtr}</b> (0 = leichteste, 15 = schwerste Stufe)</div>`:"";
+ return `<div class="sk dsk" style="grid-template-columns:1fr">${rows}</div>${gd}${pr}${tr}${tags}`}
 // Manuelles Skillprofil (wird von Importen nie überschrieben)
 function editProfile(l){const man=msGet(l)||{s:{},tg:[],ov:{}},g12=l.g12,dl=$("dlg2");
  dl.innerHTML=`<div class="fm" style="padding:18px"><h3 style="margin:0 0 4px">Skillprofil bearbeiten</h3><p class="note" style="margin:0 0 10px"><b>${esc(l.n)}</b> · Nur Werte, die du hier setzt, gelten als manuell und werden von Importen nie überschrieben. „–“ = automatisches Profil.</p>
@@ -454,10 +462,28 @@ function buildRec(raw){if(!raw||typeof raw!="object"||Array.isArray(raw))return{
   if(GN.sets.includes(nk))pairsFrom(v,pairs);
   else if(GN.tags.includes(nk)){const t=[];pairsFrom(v,t);t.forEach(p=>{if(p.x==null)tags.push(p.n);else pairs.push(p)})}
   else if(!GN.id.includes(nk)&&!GN.name.includes(nk)&&gSlot(k)>=0){const x=numOf(v);if(x!=null)pairs.push({n:k,x})}}
- if(!pairs.length&&!tags.length)return{bad:(n||"ID "+id)+": keine Tags oder Skills"};
+ if(!pairs.length&&!tags.length)return{empty:1};
  return{id,n,pairs,tags}}
+const XPK={chokepoints:"Chokepoints",duals:"Duals",fastPaced:"Fast Paced",cps:"High CPS",memory:"Memory",nerve:"Nerve Control",ship:"Ship",swing:"Swing",timings:"Timings",wave:"Wave"};
+const SETX={wave:"wave",ship:"ship",swing:"swing",timings:"timings","nerve-control":"nerve",memory:"memory","fast-paced":"fastPaced",duals:"duals","high-cps":"cps",chokepoints:"chokepoints"};
+const SPOK=new Set(["sp-spam","sp-small","sp-big","sp-unique","sp-minigame"]);   // Spielweisen; die „Twelve Demons of Christmas“-Einträge (sp-<Name>) sind keine Skills
+// Originalformat: xp je Skill 0–3 (nur bei Main-List-Leveln), skillsets = Tags. „overall“/„unknown“ und Pack-Daten werden ignoriert.
+function buildNative(raw,sd){if(!raw||typeof raw!="object")return{bad:"Eintrag ist kein Objekt"};
+ const id=ni(raw.id,1,2e9,null),n=cln(raw.name,80);if(id==null)return{bad:"ungültige Level-ID"};
+ const pairs=[],tags=[],lx=[],xp=raw.xp&&typeof raw.xp=="object"&&!Array.isArray(raw.xp)?raw.xp:null;
+ if(xp)for(const k of Object.keys(XPK)){if(!Object.prototype.hasOwnProperty.call(xp,k))continue;const x=numOf(xp[k]);if(x!=null&&x>0)pairs.push({n:XPK[k],x})}
+ const sets=Array.isArray(raw.sets)?raw.sets.slice(0,30):[];
+ for(const key of sets){if(typeof key!="string"||!okKey(key))continue;const info=sd&&Object.prototype.hasOwnProperty.call(sd,key)&&sd[key]&&typeof sd[key]=="object"?sd[key]:null,type=info&&info.type?String(info.type):"none";
+  if(type=="none"||(type=="special"&&!SPOK.has(key)))continue;
+  const nm=cln(info&&info["display-name"]||key,40);if(!nm)continue;tags.push(nm);
+  const xk=SETX[key],xv=xk&&xp?numOf(xp[xk]):null;
+  if(xv!=null&&xv>0)lx.push(xv);else if(gSlot(nm)>=0)pairs.push({n:nm,x:null})}
+ if(!pairs.length&&!tags.length)return{empty:1};
+ return{id,n,pairs,tags,lx,tr:ni(raw.tier,0,99,null)}}
 function gddpRead(txt){txt=String(txt||"").replace(/^﻿/,"").trim();if(!txt)throw new Error("Keine Daten.");
  if(txt[0]=="["||txt[0]=="{"){const o=JSON.parse(txt);let rows;
+  if(o&&!Array.isArray(o)&&o["level-data"]&&typeof o["level-data"]=="object"&&!Array.isArray(o["level-data"])){const sd=o["skillset-data"]&&typeof o["skillset-data"]=="object"&&!Array.isArray(o["skillset-data"])?o["skillset-data"]:{};
+   return{fmt:"gddp",native:1,sd,rows:Object.entries(o["level-data"]).slice(0,60001).map(([k,v])=>v&&typeof v=="object"?{id:k,name:v.name,tier:v.difficulty,sets:v.skillsets,xp:v.xp}:null)}}
   if(Array.isArray(o))rows=o;else{let c=null;for(const k of["levels","demons","data","list","records","items","results","rows"])if(Array.isArray(o[k])){c=o[k];break}
    if(c)rows=c;else{const e=Object.entries(o);if(e.length&&e.every(([k,v])=>v&&typeof v=="object"&&!Array.isArray(v)))rows=e.map(([k,v])=>Object.assign({[/^\d+$/.test(k)?"id":"name"]:k},v));else throw new Error("JSON-Aufbau nicht erkannt (erwartet wird eine Liste von Leveln)")}}
   return{fmt:"json",rows}}
@@ -465,29 +491,32 @@ function gddpRead(txt){txt=String(txt||"").replace(/^﻿/,"").trim();if(!txt)thr
  const tab=csvParse(txt,sep);if(tab.length<2)throw new Error("Die CSV enthält keine Datenzeilen");
  const h=tab[0].map(x=>String(x).trim());
  return{fmt:"csv",rows:tab.slice(1).map(r=>{const o={};h.forEach((k,i)=>{if(!k||r[i]===undefined||!okKey(k))return;let kk=k;while(kk in o)kk+=" ";o[kk]=r[i]});return o})}}
-const recSig=r=>JSON.stringify([(r.tg||[]).slice().sort(),Object.entries(r.sk).sort((a,b)=>a[0]<b[0]?-1:1),(r.pr||[]).slice().sort()]);
+const recSig=r=>JSON.stringify([(r.tg||[]).slice().sort(),Object.entries(r.sk).sort((a,b)=>a[0]<b[0]?-1:1),(r.pr||[]).slice().sort(),r.tr==null?null:r.tr]);
 function gddpAnalyze(txt,mode){
- const rd=gddpRead(txt),bad=[],recs=new Map();let dupF=0;
+ const rd=gddpRead(txt),bad=[],recs=new Map(),listedXp=[];let dupF=0,emptyN=0;
  if(rd.rows.length>60000)throw new Error("Zu viele Zeilen (max. 60000).");
- rd.rows.forEach((raw,i)=>{let r;try{r=buildRec(raw)}catch(e){r={bad:"Zeile nicht lesbar"}}
+ rd.rows.forEach((raw,i)=>{let r;try{r=rd.native?buildNative(raw,rd.sd):buildRec(raw)}catch(e){r={bad:"Zeile nicht lesbar"}}
+  if(r.empty){emptyN++;return}
   if(r.bad){bad.push({i:i+1,why:r.bad});return}
+  if(r.lx)for(const v of r.lx)listedXp.push(v);
   const key=r.id!=null?"g"+r.id:"n"+r.n.toLowerCase(),ex=recs.get(key);
   if(!ex){recs.set(key,r);return}dupF++;ex.pairs.push(...r.pairs);ex.tags.push(...r.tags);if(!ex.n&&r.n)ex.n=r.n});
  // Skalierung auf 1–10 (GDDP-XP sind keine 1–10-Werte)
  const gk=n=>{const s=gSlot(n);return s>=0?"s"+s:"n"+normK(n)},all=[],per=new Map();
  for(const r of recs.values())for(const p of r.pairs)if(p.x!=null&&p.x>0){all.push(p.x);const k=gk(p.n);let a=per.get(k);if(!a)per.set(k,a=[]);a.push(p.x)}
  let mx=0;for(const v of all)if(v>mx)mx=v;
- let m=mode;if(m=="auto")m=mx>0&&mx<=10?"ten":"all";
+ let m=mode;if(m=="auto")m=rd.native?"gddp":mx>0&&mx<=10?"ten":"all";
  const p95=a=>{if(!a.length)return 0;if(a.length<5){let x=0;for(const v of a)if(v>x)x=v;return x}a=a.slice().sort((x,y)=>x-y);return a[Math.floor(.95*(a.length-1))]};
  const refAll=p95(all),refPer=new Map();for(const[k,a]of per)refPer.set(k,p95(a));
  const cl=v=>Math.min(10,Math.max(1,Math.round(v)));
- const conv=(x,n)=>{if(m=="ten")return cl(x);const ref=m=="per"?refPer.get(gk(n)):refAll;return ref>0?cl(10*x/ref):10};
+ const conv=(x,n)=>{if(m=="ten")return cl(x);if(m=="gddp")return cl(10*x/Math.max(3,mx));const ref=m=="per"?refPer.get(gk(n)):refAll;return ref>0?cl(10*x/ref):10};
+ let pres=5;if(listedXp.length>=20){let t=0;for(const v of listedXp)t+=v;pres=conv(t/listedXp.length,"")}
  const hist=Array(10).fill(0),out=new Map();
  for(const[key,r]of recs){const sk={},rx={},pr=[],tg=[];
   for(const p of r.pairs){const n=cln(p.n,40);if(!n||/^\d+$/.test(n)||!okKey(n)||p.x==null||!(p.x>0))continue;const v=conv(p.x,n);if(sk[n]==null||v>sk[n])sk[n]=v;rx[n]=Math.max(rx[n]||0,p.x)}
-  for(const p of r.pairs){const n=cln(p.n,40);if(!n||/^\d+$/.test(n)||!okKey(n)||p.x!=null||sk[n]!=null)continue;if(gSlot(n)>=0){sk[n]=5;pr.push(n)}else tg.push(n)}
+  for(const p of r.pairs){const n=cln(p.n,40);if(!n||/^\d+$/.test(n)||!okKey(n)||p.x!=null||sk[n]!=null)continue;if(gSlot(n)>=0){sk[n]=pres;pr.push(n)}else tg.push(n)}
   r.tags.forEach(t=>{const c=cln(t,40);if(c)tg.push(c)});
-  const rec={id:r.id,n:r.n||"",tg:uniq(tg).slice(0,30),sk,rx,pr};
+  const rec={id:r.id,n:r.n||"",tg:uniq(tg).slice(0,30),sk,rx,pr,tr:r.tr==null?null:r.tr};
   if(!Object.keys(sk).length&&!rec.tg.length){bad.push({i:0,why:(r.n||"ID "+r.id)+": keine verwertbaren Tags oder Skills"});continue}
   for(const[n,v]of Object.entries(sk))if(!pr.includes(n))hist[v-1]++;out.set(key,rec)}
  // Zuordnung, Status, Konflikte
@@ -498,8 +527,8 @@ function gddpAnalyze(txt,mode){
  const conf=[];
  for(const it of items){if(!it.l)continue;const l=it.l,man=msGet(l),g12=toG12(it.rec),base=baseOf(l);
   for(let k=0;k<12;k++){const g=g12[k];if(!(g>0))continue;const gv=m10(g),b=base[k];if(!b.src)continue;const ov=man&&man.ov[k];if(ov&&ov.g===gv)continue;if(Math.abs(b.v-gv)>=2)conf.push({key:it.key,l,k,b,g,gv})}}
- c.dup=dupF+c.same+c.unSame;c.bad=bad.length;
- return{fmt:rd.fmt,rowsN:rd.rows.length,bad,dupF,items,conf,c,scale:{m,ref:m=="all"?refAll:null,mx,hist}}}
+ c.dup=dupF+c.same+c.unSame;c.bad=bad.length;c.empty=emptyN;
+ return{fmt:rd.fmt,rowsN:rd.rows.length,bad,dupF,items,conf,c,scale:{m,ref:m=="all"?refAll:null,mx,hist,pres:listedXp.length>=20?pres:null}}}
 // Import ausführen: erst alles im Speicher vorbereiten, dann speichern. Bei Fehler wird zurückgerollt.
 async function gddpApply(an,keepUn,dec){const oldG=DATA.gddp,oldM=DATA.gdman,emptyG='{"v":1,"recs":{}}',emptyM='{"v":1,"m":{}}';
  try{const next=new Map(GS),res={nw:0,up:0,same:0,un:0,dec:0};
@@ -523,10 +552,10 @@ function gdpStat(){const n=GS.size,m=L.filter(l=>l.gsk).length,mp=[...MS.values(
 const gdpTile=(v,l)=>`<div><b>${v}</b><span>${l}</span></div>`;
 function gdpRender(){const a=GP.an,box=$("gdpV");if(!a){box.innerHTML="";return}
  const c=a.c,sc=a.scale,cf=a.conf,mxh=Math.max(1,...sc.hist),ex=a.items.filter(x=>x.l),todo=c.nw+c.up+(GP.ku!==false?c.un-c.unSame:0)+GP.dec.size;
- const mt={ten:"Die Werte sind bereits 1–10 und werden gerundet übernommen.",all:`GDDP-XP werden global auf 1–10 umgerechnet (95. Perzentil = ${sc.ref!=null?Math.round(sc.ref*10)/10:"?"} XP entspricht 10, größere Werte werden auf 10 begrenzt).`,per:"GDDP-XP werden je Skill auf 1–10 umgerechnet (95. Perzentil des jeweiligen Skills entspricht 10)."}[sc.m];
+ const mt={gddp:`Die GDDP-Skillwerte 0–${Math.max(3,sc.mx)} werden auf 0–10 umgerechnet (${[1,2,3].filter(v=>v<=Math.max(3,sc.mx)).map(v=>v+" → "+Math.min(10,Math.max(1,Math.round(10*v/Math.max(3,sc.mx))))).join(", ")}; 0 = kommt nicht vor).`,ten:"Die Werte sind bereits 1–10 und werden gerundet übernommen.",all:`GDDP-XP werden global auf 1–10 umgerechnet (95. Perzentil = ${sc.ref!=null?Math.round(sc.ref*10)/10:"?"} XP entspricht 10, größere Werte werden auf 10 begrenzt).`,per:"GDDP-XP werden je Skill auf 1–10 umgerechnet (95. Perzentil des jeweiligen Skills entspricht 10)."}[sc.m];
  box.innerHTML=`<div class="stats" style="margin-top:12px">${[["Neu",c.nw],["Aktualisiert",c.up],["Doppelt",c.dup],["Nicht zuordenbar",c.un],["Ungültig",c.bad],["Konflikte",cf.length]].map(x=>gdpTile(x[1],x[0])).join("")}</div>
- <p class="note">${esc(a.fmt.toUpperCase())}: ${a.rowsN} Zeilen gelesen. „Doppelt“: ${a.dupF}× mehrfach in der Datei (zusammengeführt) und ${c.same+c.unSame} bereits identisch gespeichert (werden nicht noch einmal angelegt). Zuordnung: ${c.byId} über die Level-ID${c.byName?`, ${c.byName} über einen eindeutigen Namen (Level ohne eigene ID)`:""}.</p>
- <p class="note"><b>Skalierung:</b> ${mt} Skala: 0 = Skill kommt nicht vor, 1–10 = Stärke. Verteilung der umgerechneten Werte:</p>
+ <p class="note">${esc(a.fmt.toUpperCase())}: ${a.rowsN} Zeilen gelesen. „Doppelt“: ${a.dupF}× mehrfach in der Datei (zusammengeführt) und ${c.same+c.unSame} bereits identisch gespeichert (werden nicht noch einmal angelegt). Zuordnung: ${c.byId} über die Level-ID${c.byName?`, ${c.byName} über den Namen (Datensätze ohne ID)`:""}.${c.empty?` ${c.empty} Einträge ohne Skill-Angaben wurden übersprungen (kein Fehler).`:""}</p>
+ <p class="note"><b>Skalierung:</b> ${mt} Skala: 0 = Skill kommt nicht vor, 1–10 = Stärke.${sc.pres!=null?` Skillsets ohne eigenen XP-Wert werden mit ${sc.pres}/10 angesetzt (Durchschnitt der gelisteten Skills bei Leveln mit XP-Angabe).`:""} Verteilung der umgerechneten Werte:</p>
  <div class="hist" role="img" aria-label="Verteilung der Skill-Werte 1 bis 10">${sc.hist.map((n,i)=>`<div><i style="height:${Math.round(n/mxh*100)}%"></i><span>${i+1}</span><small>${n}</small></div>`).join("")}</div>
  ${ex.length?`<details open><summary>Beispiele (${Math.min(8,ex.length)} von ${ex.length} zugeordneten Leveln)</summary><div style="overflow:auto"><table class="pvt"><tr><th>Level</th><th>ID</th><th>Skills (1–10)</th><th>Tags</th><th>Status</th></tr>${ex.slice(0,8).map(x=>`<tr><td>${esc(x.l.n)}</td><td>${x.rec.id!=null?x.rec.id:"–"}</td><td>${esc(Object.entries(x.rec.sk).sort((p,q)=>q[1]-p[1]).slice(0,5).map(([n,v])=>n+" "+v).join(", ")||"–")}</td><td>${esc(x.rec.tg.slice(0,4).join(", ")||"–")}</td><td>${{new:"neu",upd:"aktualisiert",same:"unverändert"}[x.st]}</td></tr>`).join("")}</table></div></details>`:""}
  ${cf.length?`<details open><summary>Konflikte prüfen (${cf.length})</summary><p class="note">Hier weicht ein vorhandener Wert deutlich vom GDDP-Wert ab. Standard: dein vorhandener Wert bleibt, GDDP füllt nur Lücken. Gespeichert werden nur Entscheidungen, die du ausdrücklich triffst; offene Konflikte erscheinen bei einem erneuten Import wieder.</p><div class="row" style="margin-bottom:6px"><button class="lk" id="gdpAllG">Alle: GDDP übernehmen</button><button class="lk" id="gdpAllK">Alle: behalten</button></div><div style="max-height:300px;overflow:auto"><table class="pvt"><tr><th>Level</th><th>Skill</th><th>Aktuell</th><th>GDDP</th><th>Entscheidung</th></tr>${cf.slice(0,300).map(x=>{const id=x.key+"|"+x.k,d=GP.dec.get(id)||"keep";return `<tr><td>${esc(x.l.n)}</td><td>${esc(K[x.k])}</td><td>${LB[x.b.v]} <em class="sc ${x.b.src}">${SRCN[x.b.src]}</em></td><td>${x.g}/10 <span class="note">(≈ ${LB[x.gv]})</span></td><td><select class="inp" data-cf="${esc(id)}" style="padding:3px 6px;min-height:0"><option value="keep" ${d=="keep"?"selected":""}>Behalten</option><option value="gddp" ${d=="gddp"?"selected":""}>GDDP übernehmen</option></select></td></tr>`}).join("")}</table></div>${cf.length>300?`<p class="note">Angezeigt werden 300 von ${cf.length} Konflikten. Die Sammelaktionen gelten für alle.</p>`:""}</details>`:""}
@@ -554,26 +583,61 @@ $("gdpU").addEventListener("click",async e=>{const b=e.target.closest("button");
   try{GP.undo={g:DATA.gddp,m:DATA.gdman};const g='{"v":1,"recs":{}}';if(!await KV.set("gddp",g))throw 0;DATA.gddp=g;parseStores();applyLayers();$("gdpM").textContent="GDDP-Daten entfernt. Kuratierte, GDDL- und manuelle Daten sind unverändert.";gdpStat();drawSel();if(!$("all").classList.contains("hid"))renderAll()}catch(x){GP.undo=null;$("gdpM").textContent="Entfernen fehlgeschlagen."}}
  else if(b.id=="gdpUndo"&&GP.undo){const u=GP.undo;try{const g=u.g||'{"v":1,"recs":{}}',m=u.m||'{"v":1,"m":{}}';if(!await KV.set("gddp",g)||!await KV.set("gdman",m))throw 0;DATA.gddp=g;DATA.gdman=m;parseStores();applyLayers();GP.undo=null;$("gdpM").textContent="Letzte Änderung rückgängig gemacht.";gdpStat();drawSel();if(!$("all").classList.contains("hid"))renderAll()}catch(x){$("gdpM").textContent="Rückgängig machen fehlgeschlagen."}}});
 gdpStat();
+
+/* ===== Bekanntheit: Downloads ===== */
+const fmtN=n=>n>=1e6?(n/1e6).toFixed(1).replace(".",",")+" Mio.":n>=1e3?Math.round(n/1e3)+" Tsd.":String(n);
+function popStat(){const n=L.filter(l=>l.dl!=null).length,d=L.filter(l=>l.gid).length;$("popU").innerHTML=`<b>Gespeichert:</b> ${POP.size} Downloadwerte, davon ${n} von ${d} Leveln mit ID zugeordnet. `+(POP.size?'<button class="lk" id="popDel">Downloadwerte entfernen</button>':"")}
+function popParse(txt){txt=String(txt||"").replace(/^\ufeff/,"").trim();if(!txt)throw new Error("Keine Daten.");let rows;
+ if(txt[0]=="["||txt[0]=="{"){const o=JSON.parse(txt);if(Array.isArray(o))rows=o;else if(o&&Array.isArray(o.data))rows=o.data;else if(o&&typeof o=="object")rows=Object.entries(o).map(([k,v])=>v&&typeof v=="object"?Object.assign({id:k},v):{id:k,downloads:v});else throw new Error("Aufbau nicht erkannt")}
+ else{const first=txt.split(/\r?\n/,1)[0],sep=first.split(";").length>first.split(",").length?";":",",t=csvParse(txt,sep);if(t.length<2)throw new Error("Keine Datenzeilen");const h=t[0].map(x=>String(x).trim());rows=t.slice(1).map(r=>{const o={};h.forEach((k,i)=>{if(k&&okKey(k))o[k]=r[i]});return o})}
+ if(rows.length>300000)throw new Error("Zu viele Zeilen");
+ const m=new Map();let bad=0;for(const r of rows){const id=ni(pickKey(r,["id","levelid","ingameid"]),1,2e9,null),dl=ni(numOf(pickKey(r,["downloads","download","dl","downloadcount"])),0,2e10,null);if(id==null||dl==null){bad++;continue}m.set(id,dl)}
+ if(!m.size)throw new Error("Keine gültigen Zeilen mit id und downloads gefunden");return{m,bad,n:rows.length}}
+let POPF="";
+$("popF").onchange=e=>{const f=e.target.files[0];if(!f)return;if(f.size>25e6){$("popM").textContent="Datei zu groß (maximal 25 MB).";e.target.value="";return}f.text().then(t=>{POPF=t;$("popT").value="";$("popM").textContent=`Datei „${f.name}“ geladen. Jetzt importieren.`}).catch(()=>{$("popM").textContent="Datei konnte nicht gelesen werden."})};
+$("popT").oninput=()=>{if($("popT").value)POPF=""};
+$("popB").onclick=async()=>{const t=$("popT").value.trim()||POPF;if(!t){$("popM").textContent="Bitte Datei wählen oder Daten einfügen.";return}
+ const old=DATA.gdpop;try{const r=popParse(t),next=new Map(POP);for(const[k,v]of r.m)next.set(k,v);if(next.size>300000)throw new Error("Zu viele Werte");
+  const json=JSON.stringify({v:1,at:Date.now(),m:Object.fromEntries(next)});if(!await KV.set("gdpop",json))throw new Error("Speichern fehlgeschlagen (Speicher voll?)");
+  DATA.gdpop=json;POP=next;applyPop();const g=new Set(L.map(l=>l.gid).filter(Boolean));let hit=0;for(const k of r.m.keys())if(g.has(k))hit++;
+  $("popM").textContent=`${r.m.size} Werte gelesen, ${hit} davon Leveln zugeordnet, ${r.m.size-hit} nicht in der Datenbank (bleiben für später gespeichert)${r.bad?`, ${r.bad} ungültige Zeilen übersprungen`:""}.`;popStat();if(!$("all").classList.contains("hid"))renderAll()}
+ catch(e){DATA.gdpop=old;$("popM").textContent="Import fehlgeschlagen: "+String(e&&e.message||e).slice(0,160)+". Bestehende Daten wurden nicht verändert."}};
+$("popG").onclick=()=>{const ids=L.filter(l=>l.gid).map(l=>l.gid);if(!ids.length){$("popM").textContent="Keine Level mit ID in der Datenbank. Importiere zuerst Demonlist- oder GDDL-Daten.";return}
+ const js='(async()=>{const ids='+JSON.stringify(ids)+',s=m=>new Promise(r=>setTimeout(r,m)),out=[];for(let i=0;i<ids.length;i++){try{const r=await fetch("/api/level/"+ids[i]);if(r.status==429){await s(5000);i--;continue}if(r.ok){const j=await r.json();if(j&&j.downloads!=null)out.push({id:ids[i],downloads:+j.downloads})}}catch(e){}if(i%100==0)console.log(i+" / "+ids.length);await s(250)}const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([JSON.stringify(out)]));a.download="gd-downloads.json";a.click()})()';
+ $("popS").value=js;const done=ok=>{$("popM").textContent=ok?`Skript für ${ids.length} Level kopiert.`:`Skript für ${ids.length} Level erzeugt, bitte aus dem Feld unten kopieren.`};
+ if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(js).then(()=>done(true)).catch(()=>{$("popS").select();let ok=false;try{ok=document.execCommand("copy")}catch(x){}done(ok)});else{$("popS").select();let ok=false;try{ok=document.execCommand("copy")}catch(x){}done(ok)}};
+$("popU").addEventListener("click",async e=>{const b=e.target.closest("#popDel");if(!b)return;if(!b.dataset.arm){b.dataset.arm=1;b.textContent="Sicher?";return}
+ try{const empty='{"v":1,"m":{}}';if(!await KV.set("gdpop",empty))throw 0;DATA.gdpop=empty;POP=new Map();applyPop();$("popM").textContent="Downloadwerte entfernt.";popStat();if(!$("all").classList.contains("hid"))renderAll()}catch(x){$("popM").textContent="Entfernen fehlgeschlagen."}});
+popStat();
 $("impF").onchange=e=>{const f=e.target.files[0];if(f)f.text().then(t=>$("impT").value=t)};
 $("impB").onclick=()=>{try{const t=$("impT").value;if(/"tag":\d+/.test(t.slice(0,100))){const n=impTag(t);try{const o=JSON.parse(DATA.gdtag||"[]"),m=new Map(o.map(x=>[x.id,x]));JSON.parse(t).forEach(x=>m.set(x.id,x));{DATA.gdtag=JSON.stringify([...m.values()]);KV.set("gdtag",DATA.gdtag)}}catch(e){}$("impM").textContent=`${n} Level mit GDDL-Haupt-Tag versehen.`;drawSel();return}if(/"publisherName"/.test(t.slice(0,800))){const[u,a]=impGD(t);try{const o=JSON.parse(DATA.gdgd||"[]"),m=new Map(o.map(x=>[x.id,x]));JSON.parse(t).forEach(x=>m.set(x.id,x));{DATA.gdgd=JSON.stringify([...m.values()]);KV.set("gdgd",DATA.gdgd).then(ok=>{if(!ok)toast("Speichern fehlgeschlagen (Speicher voll?)")})}}catch(e){}$("impM").textContent=`GDDL: ${u} Level aktualisiert, ${a} neu angelegt (Tier, Enjoyment, Song, ID).`;drawSel();return}if(/"placement"|"p":\s*\d/.test(t.slice(0,400))){const n=impAPI(t);DATA.gdapi=t;KV.set("gdapi",t).then(ok=>{if(!ok)toast("Speichern fehlgeschlagen (Speicher voll?)")});$("impM").textContent=`${n} Level mit Details aus der Demonlist übernommen.`;drawSel();return}if(/GLOBAL DEMONLIST|Main List/i.test(t)){const n=impDL(t);DATA.gddm=t;KV.set("gddm",t);$("impM").textContent=`${n} Level aus der Demonlist übernommen.`;drawSel();return}const[u,a]=applyImp(parse(t));DATA.gdimp=t;KV.set("gdimp",t);$("impM").textContent=`${u} Level aktualisiert, ${a} neu angelegt.`;drawSel()}catch(e){$("impM").textContent="Import fehlgeschlagen: Format nicht erkannt."}};
 $("cnt").textContent=L.length;
 {const _ib=$("impB").onclick;$("impB").onclick=function(){const r=_ib.apply(this,arguments);try{applyLayers();gdpStat()}catch(e){console.error(e)}drawSel();return r}}
 if(S.route&&S.route.path&&typeof S.route.path[0]!="number")S.route=null;
 if(S.route&&S.route.path){S.route.path=S.route.path;const b=L[S.b];if(b){const w=b.s.map(v=>(v/5)**2);S.route.w=w;S.route.path=S.route.path}}
-const AL={q:"",s:"d",dir:-1,prof:false,n:100};
-$("alS").innerHTML=[["d","Schwierigkeit"],["e","Enjoyment"],["n","Name"],["len","Dauer"],...K.map((k,i)=>["s"+i,"Skill: "+k])].map(o=>`<option value="${o[0]}">${o[1]}</option>`).join("");
+const AL={q:"",s:"d",dir:-1,prof:false,n:100,cls:"",sk:-1,sm:3};
+$("alS").innerHTML=[["d","Schwierigkeit"],["dl","Bekanntheit (Downloads)"],["cls","Demon-Difficulty (Easy bis Extreme)"],["tier","GDDL-Tier"],["gtr","GDDP-Stufe"],["e","Enjoyment"],["n","Name"],["len","Dauer"],...K.map((k,i)=>["s"+i,"Skill: "+k])].map(o=>`<option value="${o[0]}">${o[1]}</option>`).join("");
+$("alSk").innerHTML='<option value="-1">Alle Skills</option>'+K.map((k,i)=>`<option value="${i}">${esc(k)}</option>`).join("");$("alSm").innerHTML=[1,2,3,4,5].map(v=>`<option value="${v}" ${v==3?"selected":""}>${LB[v]}</option>`).join("");
 function row(l){const tg=l.s.map((v,k)=>[k,v]).filter(x=>x[1]>0).sort((x,y)=>y[1]-x[1]).slice(0,3).map(x=>`<span class="tg">${K[x[0]]} ${x[1]}</span>`).join("");
- const du=l.len?Math.floor(l.len/60)+":"+String(l.len%60).padStart(2,"0"):"–",tgx=tagsOf(l).slice(0,4).map(x=>`<span class="tg sc ${x.src}" title="Quelle: ${SRCN[x.src]}">${esc(x.t)}</span>`).join("");
- return `<div class="rw" data-d="${l.id}"><div class="th">${cover(l,"r")}${thumb(l)}</div><div class="rn"><b>${esc(l.n)}${isDone(l)?" ✓":""}</b><div class="rt">${tg}${tgx}${(!tg&&!tgx)?'<span class="note">kein Skillprofil</span>':""}</div></div><div class="rm">${badge(l)}<span class="note">Enjoyment ${l.e!=null?l.e:"–"} · ${du}</span></div></div>`}
-function renderAll(){const q=AL.q.toLowerCase().trim();const a=L.filter(l=>(!q||l.n.toLowerCase().includes(q))&&(!AL.prof||l.s.some(x=>x)));
- const key=l=>AL.s=="d"?l.d:AL.s=="e"?l.e:AL.s=="n"?l.n.toLowerCase():AL.s=="len"?l.len:l.s[+AL.s.slice(1)];
- a.sort((x,y)=>{const p=key(x),r=key(y);if(p==null&&r==null)return 0;if(p==null)return 1;if(r==null)return -1;return(p<r?-1:p>r?1:0)*AL.dir});
- $("alC").textContent=a.length+" Level";
+ const du=l.len?Math.floor(l.len/60)+":"+String(l.len%60).padStart(2,"0"):"–",cd=clsOf(l),cc=cd?cd[0].toUpperCase()+cd.slice(1):"",tgx=tagsOf(l).slice(0,4).map(x=>`<span class="tg sc ${x.src}" title="Quelle: ${SRCN[x.src]}">${esc(x.t)}</span>`).join("");
+ return `<div class="rw" data-d="${l.id}"><div class="th">${cover(l,"r")}${thumb(l)}</div><div class="rn"><b>${esc(l.n)}${isDone(l)?" ✓":""}</b><div class="rt">${cc?`<span class="tg">${cc}</span>`:""}${tg}${tgx}${(!tg&&!tgx)?'<span class="note">kein Skillprofil</span>':""}</div></div><div class="rm">${badge(l)}<span class="note">Enjoyment ${l.e!=null?l.e:"–"} · ${du}${l.dl!=null?" · ⬇ "+fmtN(l.dl):""}</span></div></div>`}
+const CLSL={easy:"Easy",medium:"Medium",hard:"Hard",insane:"Insane",extreme:"Extreme"};
+function renderAll(){const q=AL.q.toLowerCase().trim();
+ const base=L.filter(l=>(!q||l.n.toLowerCase().includes(q))&&(!AL.prof||l.s.some(x=>x))&&(AL.sk<0||l.s[AL.sk]>=AL.sm));
+ const cnt={"":base.length,"?":0};for(const c of CLS)cnt[c]=0;for(const l of base){const c=clsOf(l);cnt[c||"?"]++}
+ $("alF").innerHTML='<span class="note">Demon-Difficulty:</span>'+[["","Alle"],...CLS.map(c=>[c,CLSL[c]]),["?","Unbekannt"]].filter(x=>x[0]!="?"||cnt["?"]).map(([c,n])=>`<button class="lk ${AL.cls==c?"on":""}" data-cls="${c}" aria-pressed="${AL.cls==c}">${n} (${cnt[c]})</button>`).join("");
+ const a=base.filter(l=>!AL.cls||(AL.cls=="?"?!clsOf(l):clsOf(l)==AL.cls));
+ const key=l=>AL.s=="d"?l.d:AL.s=="e"?l.e:AL.s=="n"?l.n.toLowerCase():AL.s=="len"?l.len:AL.s=="dl"?l.dl:AL.s=="cls"?(CLS.indexOf(clsOf(l))<0?null:CLS.indexOf(clsOf(l))):AL.s=="tier"?(l.v?l.t:null):AL.s=="gtr"?l.gtr:l.s[+AL.s.slice(1)];
+ a.sort((x,y)=>{const p=key(x),r=key(y);if(p==null&&r==null)return 0;if(p==null)return 1;if(r==null)return -1;return p<r?-AL.dir:p>r?AL.dir:(x.d-y.d)*AL.dir});
+ const need=["dl","gtr"].includes(AL.s),have=need?a.filter(l=>key(l)!=null).length:0;
+ $("alC").textContent=a.length+" Level"+(AL.cls?" · "+(AL.cls=="?"?"Unbekannt":CLSL[AL.cls]):"")+(AL.sk>=0?" · "+K[AL.sk]+" mindestens "+LB[AL.sm]:"")+(need?` · ${AL.s=="dl"?"Downloads":"GDDP-Stufe"} bekannt für ${have} von ${a.length}${have==0?(AL.s=="dl"?". Importiere Downloadzahlen unter Settings, Bekanntheit.":". Importiere GDDP-Daten unter Settings."):""}`:"");
  $("alL").innerHTML=a.slice(0,AL.n).map(row).join("")+(a.length>AL.n?'<button class="lk" id="alM">Mehr anzeigen</button>':"")}
 $("alQ").oninput=e=>{AL.q=e.target.value;AL.n=100;renderAll()};
 $("alS").onchange=e=>{AL.s=e.target.value;AL.dir=AL.s=="n"?1:-1;$("alD").textContent=AL.dir<0?"↓":"↑";AL.n=100;renderAll()};
 $("alD").onclick=()=>{AL.dir*=-1;$("alD").textContent=AL.dir<0?"↓":"↑";renderAll()};
 $("alP").onchange=e=>{AL.prof=e.target.checked;AL.n=100;renderAll()};
+$("alF").onclick=e=>{const b=e.target.closest("button[data-cls]");if(b){AL.cls=b.dataset.cls;AL.n=100;renderAll()}};
+$("alSk").onchange=e=>{AL.sk=+e.target.value;AL.n=100;renderAll()};$("alSm").onchange=e=>{AL.sm=+e.target.value;AL.n=100;renderAll()};
 $("alL").onclick=e=>{if(e.target.id=="alM"){AL.n+=100;renderAll();return}const r=e.target.closest(".rw");if(r)detail(L[r.dataset.d])};
 drawSel();render();$("stp").value=S.step||2;$("nvl").value=S.nov==null?"1":S.nov;
 
@@ -744,7 +808,7 @@ const TR=()=>P.train,PR=()=>TR().projects[TR().cur],projs=()=>Object.values(TR()
 const clp=(x,a,b)=>Math.min(b,Math.max(a,x)),uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,6);
 const sig=(pr,t)=>pr.key+"|"+t.m+"|"+t.a+"-"+t.b+"|"+t.n;
 function migrate(pr){if(pr.v==2)return;pr.v=2;pr.marks=pr.marks||[];pr.hard=pr.hard||[];pr.tasks.forEach(t=>{if(t.n==null)t.n=t.goal||1;["goal","att","ok","best","rep"].forEach(k=>delete t[k])});pr.runs=(pr.runs||[]).filter(r=>r.ok!==0&&r.ok!==false).map(r=>({t:r.t,a:r.a,b:r.b,c:r.c||1}))}
-projs().forEach(migrate);P.train.cur=P.train.projects[P.train.cur]?P.train.cur:null;
+projs().forEach(migrate);P.train.cur=(P.train.projects[P.train.cur]&&!P.train.projects[P.train.cur].arch)?P.train.cur:null;
 const cnt=(pr,t)=>pr.runs.reduce((a,r)=>a+(r.a<=t.a&&r.b>=t.b?r.c:0),0);
 const sumC=pr=>pr.runs.reduce((a,r)=>a+r.c,0);
 const tasksDone=()=>projs().reduce((a,p)=>a+p.tasks.filter(t=>t.s=="done").length,0),okRuns=()=>projs().reduce((a,p)=>a+sumC(p),0),longOk=()=>projs().reduce((a,p)=>a+p.runs.reduce((x,r)=>x+(r.b-r.a>=50?r.c:0),0),0);
@@ -778,7 +842,7 @@ function consScore(pr){if(!pr.runs.length)return null;const long=Math.max(...pr.
  return{sc:Math.round(40*long+35*cp(pr)+25*reps),long,cp:cp(pr),reps}}
 function union(pr){const iv=pr.runs.map(r=>[r.a,r.b]).sort((x,y)=>x[0]-y[0]),o=[];for(const v of iv){const l=o[o.length-1];if(l&&v[0]<=l[1])l[1]=Math.max(l[1],v[1]);else o.push([...v])}return o}
 function payTask(pr,t){const k=sig(pr,t);if(TR().paid[k]||t.paid)return 0;TR().paid[k]=1;t.paid=1;const xp=4+Math.round(.04*xpFor({d:pr.d}))+(t.a==0&&t.b==100?10:0);P.xpLog.push({t:Date.now(),why:"Training: "+pr.n+" "+t.a+"–"+t.b+" %",xp});return xp}
-function evalTasks(pr,out){let xp=0;for(const t of pr.tasks){if(t.s!="open"||(t.m=="cons"&&!pr.lpDone))continue;if(cnt(pr,t)>=t.n){t.s="done";xp+=payTask(pr,t);out.done++}}return xp}
+function evalTasks(pr,out){let xp=0;for(const t of pr.tasks){if(t.s!="open"||(t.m=="cons"&&!pr.lpDone))continue;if(cnt(pr,t)>=t.n){t.s="done";t.at=Date.now();xp+=payTask(pr,t);out.done++}}return xp}
 function bonus(pr,f,why,out){const k=f+"|"+pr.key;if(TR().paid[k])return;TR().paid[k]=1;const xp=Math.round(.3*xpFor({d:pr.d}));P.xpLog.push({t:Date.now(),why,xp});out.xp+=xp}
 function phase(pr,out){const Lt=pr.tasks.filter(t=>t.m=="learn");
  if(!pr.lpDone&&Lt.length&&Lt.every(t=>t.s!="open")){pr.lpDone=1;bonus(pr,"lp","Learning Phase abgeschlossen: "+pr.n,out);out.phase="Learning Phase";genCons(pr);out.xp+=evalTasks(pr,out)}
@@ -789,37 +853,56 @@ function logRun(a,b,c){const pr=PR();if(!pr||pr.paused)return{err:"Training ist 
  pr.runs.push({t:Date.now(),a,b,c});if(pr.runs.length>1500)pr.runs.shift();const out={xp:0,done:0,got:[],phase:null,full:a==0&&b==100};
  out.xp+=evalTasks(pr,out);phase(pr,out);out.xp+=0;out.got=checkAch();persist();return out}
 const findProj=l=>lk(l) in TR().projects?lk(l):("n"+l.n.toLowerCase()) in TR().projects?"n"+l.n.toLowerCase():null;
-function startTraining(l){let k=findProj(l);if(!k){k=lk(l);const pr={v:2,key:k,n:l.n,d:l.d,created:Date.now(),paused:false,mode:"learn",marks:[],hard:[],tasks:[],runs:[],lpDone:0,cpDone:0};TR().projects[k]=pr;genLearn(pr)}TR().cur=k;persist();goTab("train")}
+function startTraining(l){let k=findProj(l);if(!k){k=lk(l);const pr={v:2,key:k,n:l.n,d:l.d,created:Date.now(),paused:false,mode:"learn",marks:[],hard:[],tasks:[],runs:[],lpDone:0,cpDone:0};TR().projects[k]=pr;genLearn(pr)}const pj=TR().projects[k];if(pj.arch){pj.arch=0;toast("Level aus dem Archiv wieder aktiviert.")}TR().cur=k;persist();goTab("train")}
 const goTab=t=>{const b=[...document.querySelectorAll("nav button")].find(x=>x.dataset.t==t);if(b)b.click()};
 const trainLine=()=>{const p=PR();return p?`Training: <b>${esc(p.n)}</b>${p.paused?" (pausiert)":""} · Learning ${Math.round(lp(p)*100)} % · Consistency ${p.lpDone?Math.round(cp(p)*100)+" %":"gesperrt"}`:'<span class="note">Kein aktives Training</span>'};
 function sanTrain(t){const o={cur:null,projects:{},paid:{}};if(!t||typeof t!="object")return o;const n=(x,a,b,d)=>{x=parseFloat(x);return isNaN(x)?d:clp(x,a,b)},s=(x,m)=>String(x==null?"":x).slice(0,m),arr=x=>Array.isArray(x)?x:[];
  for(const[k,p]of Object.entries(t.projects||{}).slice(0,100)){if(!p||typeof p!="object")continue;
-  const pr={v:2,key:s(p.key||k,60),n:s(p.n,120),d:n(p.d,-50,100,0),created:n(p.created,0,9e15,0),paused:!!p.paused,mode:p.mode=="cons"?"cons":"learn",lpDone:p.lpDone?1:0,cpDone:p.cpDone?1:0,
+  const pr={v:2,key:s(p.key||k,60),n:s(p.n,120),d:n(p.d,-50,100,0),created:n(p.created,0,9e15,0),paused:!!p.paused,arch:n(p.arch,0,9e15,0),mode:p.mode=="cons"?"cons":"learn",lpDone:p.lpDone?1:0,cpDone:p.cpDone?1:0,
    marks:arr(p.marks).slice(0,20).map(m=>({at:n(m.at,1,99,0),label:s(m.label,40)})).filter(m=>m.at>0),
    hard:arr(p.hard).slice(0,30).map(h=>({a:n(h.a,0,100,0),b:n(h.b,0,100,0),note:s(h.note,100)})).filter(h=>h.b>h.a),
-   tasks:arr(p.tasks).slice(0,300).map(x=>({id:s(x.id||uid(),20),m:x.m=="cons"?"cons":"learn",a:n(x.a,0,100,0),b:n(x.b,0,100,100),desc:s(x.desc,150),n:n(x.n!=null?x.n:x.goal,1,50,1),st:n(x.st,1,9,1),s:["done","skip"].includes(x.s)?x.s:"open",custom:!!x.custom,paid:x.paid?1:0})).filter(x=>x.b>x.a),
+   tasks:arr(p.tasks).slice(0,300).map(x=>({id:s(x.id||uid(),20),m:x.m=="cons"?"cons":"learn",a:n(x.a,0,100,0),b:n(x.b,0,100,100),desc:s(x.desc,150),n:n(x.n!=null?x.n:x.goal,1,50,1),st:n(x.st,1,9,1),s:["done","skip"].includes(x.s)?x.s:"open",custom:!!x.custom,paid:x.paid?1:0,at:n(x.at,0,9e15,0)})).filter(x=>x.b>x.a),
    runs:arr(p.runs).slice(-1500).filter(r=>r&&r.ok!==0&&r.ok!==false).map(r=>({t:n(r.t,0,9e15,0),a:n(r.a,0,100,0),b:n(r.b,0,100,100),c:n(r.c,1,50,1)})).filter(r=>r.b>r.a)};o.projects[s(k,60)]=pr}
  for(const k of Object.keys(t.paid||{}).slice(0,5000))o.paid[s(k,120)]=1;o.cur=o.projects[t.cur]?t.cur:null;return o}
 // Darstellung Training
 function tline(pr){const hs=pr.hard.map(h=>`<rect x="${h.a}" y="0" width="${h.b-h.a}" height="9" fill="#ef4444aa"/>`).join(""),ok=union(pr).map(v=>`<rect x="${v[0]}" y="12" width="${v[1]-v[0]}" height="9" fill="#22d3ee99"/>`).join(""),mk=pr.marks.map(m=>`<rect x="${m.at}" y="0" width=".6" height="22" fill="#fff9"/>`).join("");
  return `<svg viewBox="0 0 100 22" preserveAspectRatio="none" style="width:100%;height:36px;background:var(--p2);border-radius:8px">${hs}${ok}${mk}</svg><div class="note"><span style="color:#ef4444">■</span> schwere Stellen · <span style="color:var(--ac2)">■</span> von dir geschaffte Bereiche · <span>│</span> Marker</div>`}
 function goalCard(pr,t){const c=Math.min(cnt(pr,t),t.n),open=t.s=="open";return `<div class="tk ${open?"":"dn"}"><div class="row"><b>${t.a}–${t.b} %</b><span class="tg">Stufe ${t.st}</span>${t.custom?'<span class="tg">eigene</span>':""}${t.s=="done"?'<span class="tg">erledigt</span>':t.s=="skip"?'<span class="tg">übersprungen</span>':""}</div><div class="note">${esc(t.desc)}</div><div class="prog"><i style="width:${t.s=="open"?c/t.n*100:100}%"></i></div><div class="note">${t.s=="open"?c:t.n} / ${t.n} Erfolge in einem Run ${t.a}–${t.b} % oder länger</div><div class="row" style="margin-top:6px">${open?`<button class="lk" data-fill="${t.id}">Run eintragen</button><button class="lk" data-skip="${t.id}">Überspringen</button>`:`<button class="lk" data-reopen="${t.id}">Wieder öffnen</button>`}<button class="lk" data-te="${t.id}">Bearbeiten</button><button class="lk" data-td="${t.id}">Löschen</button></div></div>`}
+const ago=t=>{if(!t)return"früher";const d=Math.floor((Date.now()-t)/864e5);return d<=0?"heute":d==1?"gestern":d<30?"vor "+d+" Tagen":new Date(t).toLocaleDateString("de-DE")};
+const lastRun=pr=>pr.runs.length?pr.runs[pr.runs.length-1]:null;
+const lastAct=pr=>{let m=pr.created||0;for(const r of pr.runs)if(r.t>m)m=r.t;for(const t of pr.tasks)if(t.at>m)m=t.at;return m};
+const best0Of=pr=>{let b=0;for(const r of pr.runs)if(r.a==0&&r.b>b)b=r.b;return b};
+const activeTrain=()=>projs().filter(p=>!p.arch);
+// Möglicherweise abschlussreif: nur aus eingetragenen Runs abgeleitet, nichts geschätzt
+function readyInfo(pr){const l=byKey(pr.key);if(l&&isDone(l))return{done:1,txt:"Bereits als geschafft im Profil eingetragen, das Level kann archiviert werden"};
+ if(pr.runs.some(r=>r.a==0&&r.b>=100))return{txt:"Ein Full Run ist eingetragen"};
+ if(pr.lpDone&&cp(pr)>=.6)return{txt:"Consistency Builder zu "+Math.round(cp(pr)*100)+" % erledigt"};
+ const b=best0Of(pr);if(b>=80)return{txt:"Bester Run ab Start: "+b+" %"};return null}
+function trCard(pr,cur,arch){const l=byKey(pr.key),lr=lastRun(pr),b0=best0Of(pr),ri=readyInfo(pr),dn=pr.tasks.filter(t=>t.s=="done").sort((x,y)=>(y.at||0)-(x.at||0)),ld=dn[0],lp_=Math.round(lp(pr)*100),cp_=pr.lpDone?Math.round(cp(pr)*100):null,k=esc(pr.key);
+ return `<div class="tk ${arch?"dn":""}"><div class="row"><b style="flex:1">${esc(pr.n)}${cur?' <span class="note">(geöffnet)</span>':""}${pr.paused?' <span class="tg">pausiert</span>':""}${arch?` <span class="note">archiviert ${ago(pr.arch)}</span>`:""}</b>${ri&&!ri.done&&!arch?'<span class="tg">möglicherweise abschlussreif</span>':""}${l?badge(l):""}</div>
+ <div class="note">Learning ${lp_} %</div><div class="prog"><i style="width:${lp_}%"></i></div><div class="note">Consistency ${cp_==null?"🔒 gesperrt":cp_+" %"}</div><div class="prog"><i style="width:${cp_||0}%"></i></div>
+ <div class="meta"><span>Zuletzt trainiert: <b>${ago(lastAct(pr))}</b></span><span>Letzter Run: <b>${lr?lr.a+"–"+lr.b+" %"+(lr.c>1?" ×"+lr.c:"")+" ("+ago(lr.t)+")":"–"}</b></span><span>Bester Run ab Start: <b>${b0?b0+" %":"–"}</b></span><span>Ziele: <b>${dn.length}/${pr.tasks.length}</b></span><span>Runs: <b>${sumC(pr)}</b></span></div>
+ <div class="note">${ld?`Zuletzt Fortschritt: Ziel ${ld.a}–${ld.b} % erledigt${ld.at?" ("+ago(ld.at)+")":""}.`:lr?"Noch kein Ziel erledigt.":"Noch keine Runs eingetragen."}</div>
+ ${ri&&!arch?`<div class="warn" style="margin:8px 0 0">${ri.done?"":"Möglicherweise abschlussreif: "}${esc(ri.txt)}.${ri.done?"":` <button class="lk" data-fink="${k}">Abschluss eintragen</button>`}</div>`:""}
+ <div class="row" style="margin-top:8px">${arch?`<button class="lk" data-unarch="${k}">Reaktivieren</button><button class="lk" data-del="${k}">Endgültig löschen</button>`:`${cur?"":`<button class="lk" data-sel="${k}">Öffnen</button>`}<button class="lk" data-arch="${k}">Archivieren</button>`}</div></div>`}
+function trOverview(cur){const all=projs();if(!all.length)return"";const act=all.filter(p=>!p.arch).sort((a,b)=>lastAct(b)-lastAct(a)),ar=all.filter(p=>p.arch).sort((a,b)=>b.arch-a.arch),rdy=act.filter(p=>{const r=readyInfo(p);return r&&!r.done}).length;
+ return `<div class="box" style="margin-bottom:14px"><div class="row" style="justify-content:space-between"><h3 style="margin:0">Aktives Training</h3><span class="note">${act.length} aktiv · ${rdy} möglicherweise abschlussreif · ${ar.length} im Archiv</span></div><div style="margin-top:10px">${act.map(p=>trCard(p,p===cur,false)).join("")||'<p class="note">Kein aktives Level. Wähle unten eins aus oder hole eins aus dem Archiv.</p>'}</div></div>${ar.length?`<details class="box" style="margin-bottom:14px"><summary><b>Archiv (${ar.length})</b> <span class="note">gespeicherte Level, nicht im aktiven Training</span></summary><p class="note">Archivierte Level behalten alle Runs, Ziele, Marker und Fortschritte. Reaktivieren stellt alles unverändert wieder her. Nur „Endgültig löschen“ entfernt die Trainingsdaten dieses Levels (erhaltene XP bleiben).</p><div>${ar.map(p=>trCard(p,false,true)).join("")}</div></details>`:""}`}
 function renderTrain(){const pr=PR(),all=projs().sort((a,b)=>b.created-a.created);
- const list=all.length?`<div class="box" style="margin-top:14px"><h3 style="margin-top:0">Meine Trainingslevel</h3>${all.map(p=>`<div class="row" style="margin:6px 0"><b style="flex:1">${esc(p.n)}${p===pr?' <span class="note">(aktiv)</span>':""}${p.paused?' <span class="note">pausiert</span>':""}</b><span class="note">Learning ${Math.round(lp(p)*100)} %${p.lpDone?" · Consistency "+Math.round(cp(p)*100)+" %":""}</span>${p===pr?"":`<button class="lk" data-sel="${esc(p.key)}">Fortsetzen</button>`}<button class="lk" data-del="${esc(p.key)}">Löschen</button></div>`).join("")}</div>`:"";
+ const list=trOverview(pr);
  const pick=`<div class="box"><h3 style="margin-top:0">${pr?"Anderes Level trainieren":"Level zum Training wählen"}</h3><div class="ac" id="trAdd"></div><p class="note">Du kannst jedes Level aus der Datenbank wählen oder in der Road über „Training“ eines übernehmen. Fortschritte bleiben je Level gespeichert.</p></div>`;
- if(!pr){$("trC").innerHTML=pick+list;AC($("trAdd"),"Demon suchen …",i=>startTraining(L[i]));return}
+ if(!pr){$("trC").innerHTML=list+pick;AC($("trAdd"),"Demon suchen …",i=>startTraining(L[i]));return}
  const l=byKey(pr.key),m=pr.mode,b=bounds(pr),cs=consScore(pr),lt=pr.tasks.filter(t=>t.m=="learn"),open=lt.filter(t=>t.s=="open"),best0=Math.max(0,...pr.runs.filter(r=>r.a==0).map(r=>r.b)),longest=Math.max(0,...pr.runs.map(r=>r.b-r.a));
  const sk=l?l.s.map((v,k)=>[k,v]).filter(x=>x[1]>0).sort((x,y)=>y[1]-x[1]).slice(0,4).map(x=>`<span class="tg">${K[x[0]]} ${x[1]}</span>`).join(""):"";
  const sorted=pr.tasks.filter(t=>t.m==m).sort((x,y)=>(x.s=="open"?0:1)-(y.s=="open"?0:1)||x.st-y.st||x.a-y.a);
  const body=m=="cons"&&!pr.lpDone?`<div class="box lockb"><h3 style="margin-top:0">🔒 Consistency Builder gesperrt</h3><p class="note">Er wird freigeschaltet, sobald alle Lernziele der Learning Phase erfüllt sind. Noch offen (${open.length} von ${lt.length}):</p>${open.map(t=>`<div class="note">• ${t.a}–${t.b} % · ${esc(t.desc)}</div>`).join("")}<div class="prog" style="margin-top:10px"><i style="width:${lp(pr)*100}%"></i></div></div>`:
   `${m=="cons"?`<div class="box" style="margin-bottom:14px"><h3 style="margin-top:0">Consistency-Bewertung</h3>${cs?`<div class="row"><b style="font-size:22px">${cs.sc} / 100</b></div><div class="note">Längster Run ${Math.round(cs.long*100)} % (40 %) · Consistency-Ziele ${Math.round(cs.cp*100)} % (35 %) · Wiederholungen ${Math.round(cs.reps*100)} % (25 %). Grundlage sind nur deine eingetragenen erfolgreichen Runs.</div>`:'<div class="note">Noch keine Runs eingetragen.</div>'}</div>`:""}
   <div class="row" style="justify-content:space-between;margin-bottom:8px"><b>${m=="learn"?"Lernziele":"Consistency-Ziele"} (${sorted.filter(t=>t.s!="open").length}/${sorted.length})</b><button class="lk" id="tNew">+ Eigenes Ziel</button></div>${sorted.map(t=>goalCard(pr,t)).join("")||'<p class="note">Keine Ziele.</p>'}`;
- $("trC").innerHTML=`<div class="box"><div class="al" style="grid-template-columns:150px 1fr;border:0;padding:0"><div class="th" style="height:84px">${l?cover(l,"t")+thumb(l):""}</div><div><h3 style="margin:0">${esc(pr.n)} ${l?badge(l):""}</h3><div class="meta">Song: ${l&&l.song?`<b>${esc(l.song)}</b>`:'<span class="u">unbekannt</span>'} · Dauer: ${l&&l.len?Math.floor(l.len/60)+":"+String(l.len%60).padStart(2,"0"):'<span class="u">unbekannt</span>'}</div><div class="rt">${sk||'<span class="note">kein Skillprofil</span>'}</div><div class="row" style="margin-top:8px"><button class="lk" id="trPause">${pr.paused?"▶ Fortsetzen":"⏸ Pausieren"}</button>${l?`<button class="lk" id="trFin">Demon geschafft: Abschluss eintragen</button>`:""}</div></div></div>${pr.paused?'<div class="warn">Training pausiert. Alle Daten bleiben erhalten. Runs können nach dem Fortsetzen eingetragen werden.</div>':""}</div>
+ $("trC").innerHTML=`${list}<div class="box"><div class="al" style="grid-template-columns:150px 1fr;border:0;padding:0"><div class="th" style="height:84px">${l?cover(l,"t")+thumb(l):""}</div><div><h3 style="margin:0">${esc(pr.n)} ${l?badge(l):""}</h3><div class="meta">Song: ${l&&l.song?`<b>${esc(l.song)}</b>`:'<span class="u">unbekannt</span>'} · Dauer: ${l&&l.len?Math.floor(l.len/60)+":"+String(l.len%60).padStart(2,"0"):'<span class="u">unbekannt</span>'}</div><div class="rt">${sk||'<span class="note">kein Skillprofil</span>'}</div><div class="row" style="margin-top:8px"><button class="lk" id="trPause">${pr.paused?"▶ Fortsetzen":"⏸ Pausieren"}</button>${l?`<button class="lk" id="trFin">Demon geschafft: Abschluss eintragen</button>`:""}</div></div></div>${pr.paused?'<div class="warn">Training pausiert. Alle Daten bleiben erhalten. Runs können nach dem Fortsetzen eingetragen werden.</div>':""}</div>
  <div class="stats" style="margin-top:14px">${[["Learning",Math.round(lp(pr)*100)+" %"],["Consistency",pr.lpDone?Math.round(cp(pr)*100)+" %":"🔒"],["Ziele erledigt",pr.tasks.filter(t=>t.s=="done").length],["Erfolgreiche Runs",sumC(pr)],["Bester Run ab Start",best0?best0+" %":"–"],["Längster Run",longest?longest+" %":"–"]].map(x=>`<div><b>${x[1]}</b><span>${x[0]}</span></div>`).join("")}</div>
  <div class="box" style="margin-bottom:14px"><h3 style="margin-top:0">Run eintragen</h3><p class="note">Trage einen erfolgreichen Run ein. Alle Ziele, die vollständig in diesem einen Run liegen, werden automatisch erledigt. Getrennte Runs werden nicht zusammengerechnet.</p><div class="row"><input id="rA" class="inp" type="number" min="0" max="99" placeholder="von %" style="width:90px"><input id="rB" class="inp" type="number" min="1" max="100" placeholder="bis %" style="width:90px"><input id="rC" class="inp" type="number" min="1" max="50" value="1" title="Anzahl" style="width:70px"><button class="go" style="margin:0;width:auto;padding:9px 16px" id="rGo" ${pr.paused?"disabled":""}>Als erfolgreich eintragen</button></div>${pr.runs.length?`<div class="note" style="margin-top:8px">Letzte Runs: ${pr.runs.slice(-5).reverse().map((r,i)=>`${r.a}–${r.b} %${r.c>1?" ×"+r.c:""} <button class="lk" data-rr="${pr.runs.length-1-i}" style="padding:1px 8px;min-height:0">✕</button>`).join(" · ")}</div>`:""}<div id="trBan"></div></div>
  <div class="box" style="margin-bottom:14px"><h3 style="margin-top:0">Fortschritt im Level</h3>${tline(pr)}</div>
  <details class="box" style="margin-bottom:14px"><summary>Levelstruktur festlegen (optional)</summary><p class="note">${b.src=="marker"?"Aufgaben basieren auf deinen Markern.":"Abschnittsgrenzen werden nicht automatisch erkannt und nie erfunden. Aktuell wird prozentbasiert aufgeteilt."} Trage bekannte Punkte ein (zum Beispiel „Drop“ bei 22 %) und schwere Stellen, dann entstehen passendere Aufgaben.</p>${pr.marks.map((x,i)=>`<div class="row" style="margin:4px 0"><b>${x.at} %</b><span class="note" style="flex:1">${esc(x.label)}</span><button class="lk" data-md="${i}">Entfernen</button></div>`).join("")}<div class="row"><input id="mAt" class="inp" type="number" min="1" max="99" placeholder="bei %" style="width:84px"><input id="mLb" class="inp" placeholder="Name (z. B. Drop)" maxlength="40" style="flex:1;min-width:120px"><button class="lk" id="mAdd">Marker hinzufügen</button></div>${pr.hard.map((h,i)=>`<div class="row" style="margin:4px 0"><b>${h.a}–${h.b} %</b><span class="note" style="flex:1">schwer ${esc(h.note)}</span><button class="lk" data-hd="${i}">Entfernen</button></div>`).join("")}<div class="row" style="margin-top:6px"><input id="hA" class="inp" type="number" min="0" max="100" placeholder="schwer von %" style="width:110px"><input id="hB" class="inp" type="number" min="0" max="100" placeholder="bis %" style="width:84px"><input id="hN" class="inp" placeholder="Notiz" maxlength="100" style="flex:1;min-width:100px"><button class="lk" id="hAdd">Stelle hinzufügen</button></div></details>
- <div class="row" style="margin-bottom:14px"><button class="modeb ${m=="learn"?"on":""}" data-mode="learn"><b>LEARNING PHASE</b><span>${open.length?open.length+" Lernziele offen":"abgeschlossen"}</span></button><button class="modeb ${m=="cons"?"on":""} ${pr.lpDone?"":"lock"}" data-mode="cons"><b>${pr.lpDone?"":"🔒 "}CONSISTENCY BUILDER</b><span>${pr.lpDone?"Runs verbinden und wiederholen":"nach der Learning Phase"}</span></button></div>${body}${pick}${list}`;
+ <div class="row" style="margin-bottom:14px"><button class="modeb ${m=="learn"?"on":""}" data-mode="learn"><b>LEARNING PHASE</b><span>${open.length?open.length+" Lernziele offen":"abgeschlossen"}</span></button><button class="modeb ${m=="cons"?"on":""} ${pr.lpDone?"":"lock"}" data-mode="cons"><b>${pr.lpDone?"":"🔒 "}CONSISTENCY BUILDER</b><span>${pr.lpDone?"Runs verbinden und wiederholen":"nach der Learning Phase"}</span></button></div>${body}${pick}`;
  AC($("trAdd"),"Demon suchen …",i=>startTraining(L[i]));animBars($("trC"))}
 function askTask(tid){const pr=PR(),t=tid?pr.tasks.find(x=>x.id==tid):null,m=pr.mode;
  $("dlg2").innerHTML=`<div class="fm" style="padding:18px"><h3 style="margin:0 0 8px">${t?"Ziel bearbeiten":"Eigenes Ziel"}</h3><div class="g" style="gap:8px"><div><label>Von %</label><input id="tA" class="inp" type="number" min="0" max="99" value="${t?t.a:0}" style="width:100%"></div><div><label>Bis %</label><input id="tB" class="inp" type="number" min="1" max="100" value="${t?t.b:20}" style="width:100%"></div></div><label>Beschreibung</label><input id="tD" class="inp" maxlength="150" value="${esc(t?t.desc:"Eigenes Ziel")}" style="width:100%"><label>Benötigte erfolgreiche Runs</label><input id="tG" class="inp" type="number" min="1" max="50" value="${t?t.n:1}" style="width:100%"><div class="row" style="margin-top:12px"><button class="go" style="margin:0;flex:1" id="tOk">Speichern</button><button class="lk" id="tCa">Abbrechen</button></div></div>`;
@@ -830,7 +913,10 @@ function trFeedback(o){if(o.err){toast(o.err);return}let m=o.done?`${o.done} Zie
  if(o.full){$("trBan").innerHTML='<div class="warn">Full Run eingetragen. Hast du den Demon geschafft? <button class="lk" id="trFin2">Abschluss eintragen</button></div>'}}
 $("trC").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;const pr=PR(),d=b.dataset;
  if(d.sel){TR().cur=d.sel;persist();renderTrain()}
- else if(d.del){if(!d.arm){b.dataset.arm=1;b.textContent="Sicher? (XP bleiben)";return}delete TR().projects[d.del];if(TR().cur==d.del)TR().cur=null;persist();renderTrain()}
+ else if(d.arch){const p=TR().projects[d.arch];if(p){p.arch=Date.now();if(TR().cur==d.arch){const nx=activeTrain().sort((a,b)=>lastAct(b)-lastAct(a))[0];TR().cur=nx?nx.key:null}persist();toast("„"+esc(p.n)+"“ ins Archiv verschoben. Alle Daten bleiben erhalten.");renderTrain()}}
+ else if(d.unarch){const p=TR().projects[d.unarch];if(p){p.arch=0;persist();toast("„"+esc(p.n)+"“ ist wieder aktiv.");renderTrain()}}
+ else if(d.fink){const l=byKey(d.fink);if(l)askDone(l)}
+ else if(d.del){if(!d.arm){b.dataset.arm=1;b.textContent="Sicher? Alle Trainingsdaten dieses Levels gehen verloren";return}delete TR().projects[d.del];if(TR().cur==d.del)TR().cur=null;persist();renderTrain()}
  else if(!pr)return;
  else if(b.id=="trPause"){pr.paused=!pr.paused;persist();renderTrain()}
  else if(d.mode){if(d.mode=="cons"&&!pr.lpDone){toast("Der Consistency Builder wird nach der Learning Phase freigeschaltet.");return}pr.mode=d.mode;persist();renderTrain()}
