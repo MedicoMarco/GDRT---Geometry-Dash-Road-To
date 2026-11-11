@@ -47,7 +47,7 @@ pre{overflow-x:auto;background:var(--p2);padding:10px;border-radius:8px;font-siz
 .th{position:relative;height:63px;border-radius:8px;overflow:hidden}.th svg{width:100%;height:100%;display:block}
 .rn b{font-size:15px}.rt{display:flex;gap:5px;flex-wrap:wrap;margin-top:3px}.tg{font-size:11px;background:var(--p2);border:1px solid var(--bd);border-radius:999px;padding:1px 8px;color:var(--mu)}
 .rm{text-align:right;display:flex;flex-direction:column;gap:3px;align-items:flex-end}@media(max-width:560px){.rw{grid-template-columns:84px 1fr}.rm{grid-column:1/-1;flex-direction:row;justify-content:space-between;align-items:center}.th{height:50px}}
-.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--p2);border:1px solid var(--ac);padding:10px 16px;border-radius:12px;z-index:99;box-shadow:0 12px 30px #000a;animation:tin .3s;max-width:90vw}@keyframes tin{from{opacity:0;transform:translate(-50%,10px)}}
+#tst{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;z-index:99;pointer-events:none;max-width:90vw}.toast{background:var(--p2);border:1px solid var(--ac);padding:10px 16px;border-radius:12px;box-shadow:0 12px 30px #000a;animation:tin .3s;max-width:100%}@keyframes tin{from{opacity:0;transform:translateY(10px)}}
 .hero{position:relative;border-radius:18px;overflow:hidden;min-height:210px;border:1px solid var(--bd);margin-bottom:14px}.hero>svg,.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.hero .ov{position:absolute;inset:0;background:linear-gradient(90deg,#0b0d14f2 20%,#0b0d1466)}.hi{position:relative;padding:22px}
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:8px;margin-bottom:14px}.stats div{background:var(--p);border:1px solid var(--bd);border-radius:12px;padding:10px;text-align:center}.stats b{display:block;font-size:20px}.stats span{font-size:11px;color:var(--mu)}
 .ag{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px}.ac2{background:var(--p);border:1px solid var(--bd);border-radius:12px;padding:10px;font-size:13px}.ac2.off{opacity:.55}.ac2 .ic{font-size:22px}.ac2 .prog{margin:6px 0 2px;height:5px}
@@ -67,12 +67,12 @@ dialog[open]{animation:din .2s ease both}dialog::backdrop{animation:fin .2s ease
 .col{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease}.col.open{grid-template-rows:1fr}.col>div{overflow:hidden;min-height:0}
 .achh{display:flex;width:100%;justify-content:space-between;align-items:center;background:none;border:0;color:var(--tx);font:inherit;cursor:pointer;padding:0}.chev{display:inline-block;transition:transform .25s}.chev.open{transform:rotate(90deg)}
 .toast.ach{border-color:#f59e0b;box-shadow:0 0 0 0 #f59e0b66,0 12px 30px #000a;animation:tin .3s,glow 1.2s ease-out}.toast.lv{border-color:var(--ac2);font-size:16px;animation:tin .3s,pop .6s cubic-bezier(.2,1.4,.4,1)}
-@keyframes glow{from{box-shadow:0 0 0 0 #f59e0b99,0 12px 30px #000a}to{box-shadow:0 0 0 18px #f59e0b00,0 12px 30px #000a}}@keyframes pop{from{transform:translate(-50%,10px) scale(.9)}60%{transform:translate(-50%,0) scale(1.06)}}
+@keyframes glow{from{box-shadow:0 0 0 0 #f59e0b99,0 12px 30px #000a}to{box-shadow:0 0 0 18px #f59e0b00,0 12px 30px #000a}}@keyframes pop{from{transform:translateY(10px) scale(.9)}60%{transform:translateY(0) scale(1.06)}}
 .modeb.lock{opacity:.6}.lockb{border-style:dashed}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 .card{border-radius:14px;grid-template-columns:250px 1fr}.card:hover{transform:none}.bd{padding:16px 18px}.bd h3{font-size:18px}.meta{font-size:12.5px}.sk div{font-size:12px}.bar{height:5px}.exp{font-size:13px;color:var(--mu);line-height:1.55}.exp b{color:var(--tx)}.tag{letter-spacing:.12em}
 .stats b{font-weight:600}.box{border-radius:14px}h3{font-weight:600}
-.qc{display:grid;grid-template-columns:150px 1fr;gap:14px;background:var(--p);border:1px solid var(--bd);border-radius:14px;padding:12px;margin-bottom:10px;transition:border-color .2s,opacity .3s}.qc.weekly{border-color:#7c5cff88}.qc.weekly:first-child{padding:16px}.qc.special{border-color:#f59e0b88}.qc.chain{border-left:3px solid var(--ac2)}.qc.done{opacity:.6}.qc.lock{opacity:.5}.qc h3{margin:6px 0 2px;font-size:17px}.qth{height:96px}.qch{display:grid;place-items:center;font-size:34px;background:var(--p2)}.lk.on{background:var(--ac);border-color:var(--ac);color:#fff}
+.qc{display:grid;grid-template-columns:150px 1fr;gap:14px;background:var(--p);border:1px solid var(--bd);border-radius:14px;padding:12px;margin-bottom:10px;transition:border-color .2s,opacity .3s}.qc.weekly{border-color:#7c5cff88}.qc.weekly:first-child{padding:16px}.qc.special{border-color:#f59e0b88}.qc.chain{border-left:3px solid var(--ac2)}.qc.done{opacity:.6}.qc.lock{opacity:.5}.qc h3{margin:6px 0 2px;font-size:17px}.qth{height:96px}.qch{display:grid;place-items:center;font-size:34px;background:var(--p2)}.lk.on{background:var(--ac);border-color:var(--ac);color:#fff}.qc.rdy{border-color:#22c55e99}ul.ql{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:3px;font-size:13px}ul.ql li{padding:3px 8px;background:var(--p2);border-radius:8px}
 @media(max-width:640px){.qc{grid-template-columns:1fr}.qth{height:70px}nav button{padding:9px 3px;font-size:11.5px}}
 .sc{font-style:normal;font-size:10px;letter-spacing:.04em;padding:1px 7px;border-radius:999px;border:1px solid var(--bd);color:var(--mu);white-space:nowrap;background:transparent}
 .sc.gddl{color:#7dd3fc;border-color:#7dd3fc66}.sc.gddp{color:#fbbf24;border-color:#fbbf2466}.sc.man{color:#86efac;border-color:#86efac66}.tg.sc{font-size:11px}
@@ -643,7 +643,7 @@ drawSel();render();$("stp").value=S.step||2;$("nvl").value=S.nov==null?"1":S.nov
 
 
 /* ===== Phase 1: Profile · XP · Achievements · Road-Erweiterungen · Datenverwaltung ===== */
-const toast=(m,c)=>{const t=document.createElement("div");t.className="toast "+(c||"");t.innerHTML=m;document.body.appendChild(t);setTimeout(()=>t.remove(),4500)};
+const toast=(m,c)=>{let box=document.getElementById("tst");if(!box){box=document.createElement("div");box.id="tst";box.setAttribute("aria-live","polite");document.body.appendChild(box)}const t=document.createElement("div");t.className="toast "+(c||"");t.innerHTML=m;box.appendChild(t);while(box.children.length>4)box.firstChild.remove();setTimeout(()=>t.remove(),4500)};
 // XP-Konfiguration (zentral): XP je Demon = base * e^(k * (Schwierigkeit + off)); Level n -> n+1 kostet lvl * n^pow
 const XPC={base:15,k:.09,off:12,lvl:100,pow:1.6,hardBonus:.25,roadBonus:100};
 const xpFor=l=>Math.round(XPC.base*Math.exp(XPC.k*(l.d+XPC.off)));
@@ -780,7 +780,7 @@ function renderSet(){const ps=Object.values(DB.profiles);
  <h3>Road-Algorithmus</h3><p class="note">Beam-Search über Kandidaten zwischen Hardest und Ziel. Bewertung: Nähe zur idealen Schwierigkeit je Schritt, Strafe für große Sprünge, Relevanz der Skills fürs Ziel, Abdeckung noch nicht trainierter Skills (mit deiner Selbsteinschätzung), Zuverlässigkeit des Skillprofils (kuratiert voll, aus GDDL-Haupt-Tag reduziert), Abzug für Level aus deiner Routenhistorie, kleiner Zufallsanteil und optional Bonus für bekannte oder weniger bekannte Level. Geschaffte und ausgeschlossene Demons werden nie vorgeschlagen.</p>
  <h3>Online-Betrieb (nicht eingerichtet)</h3><p class="note">Echte Accounts mit Synchronisation brauchen ein Backend, zum Beispiel Supabase: Projekt anlegen, Auth (E-Mail) aktivieren, Tabellen für Profile, geschaffte Demons, Training und Routen mit einer Spalte user_id anlegen, Row-Level-Security mit der Regel auth.uid() = user_id aktivieren und im Code die Funktionen persist() und das Laden von DB durch Aufrufe der Supabase-Clientbibliothek ersetzen. Passwörter dürfen nie im Browser gespeichert werden.</p>
  <h3>Nicht realisierbar im Browser</h3><p class="note">Live-Zugriff auf das laufende Spiel, Auslesen von Spielspeicher, automatische Erkennung von Levelabschnitten oder Skills aus Videos, Attempts und Bestprozente aus den Speicherdateien. Der Import der Speicherdatei liefert nur „abgeschlossen“.</p></details>
- <h3>Noch nicht umgesetzt</h3><p class="note">Quests (kommen später) und Online-Accounts (brauchen ein Backend).</p>`}
+ <h3>Noch nicht umgesetzt</h3><p class="note">Online-Accounts (brauchen ein Backend).</p>`}
 $("setP").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;const nm=($("npN").value||"").trim().slice(0,30),M=$("exM");
  if(b.dataset.sw){try{localStorage.setItem("gdcur",b.dataset.sw)}catch(x){}location.reload()}
  else if(b.id=="npB"){if(!nm){toast("Bitte einen Namen eingeben.");return}const id="p"+Date.now().toString(36);DB.profiles[id]=mkP(id,nm);persist();try{localStorage.setItem("gdcur",id)}catch(x){}location.reload()}
@@ -960,16 +960,28 @@ drawSel();
 
 
 function roadOut(){const k=i=>i!=null&&L[i]?lk(L[i]):null;return{a:k(S.a),b:k(S.b),wish:S.wish.map(k).filter(Boolean),ex:S.ex.map(k).filter(Boolean),step:S.step,nov:S.nov,route:S.route&&S.route.path?{path:S.route.path.map(k).filter(Boolean),rej:(S.route.rej||[]).map(k).filter(Boolean),fin:S.route.fin?1:0,at:S.route.at||0}:null}}
-function sanSet(s){return s&&typeof s=="object"?{weak:s.weak!==false,achOpen:!!s.achOpen,qOff:[-1,0,1].includes(+s.qOff)?+s.qOff:0}:{}}
-function sanQuests(x){const o={daily:{key:null,list:[]},weekly:{key:null,list:[]},special:{key:null,list:[]},chain:null,hist:[],used:[],tmpl:[],chainDone:[],chainWeek:null,stats:{daily:0,weekly:0,special:0,chain:0,challenge:0,skill:0,cond:0,nopractice:0,weeklyDemon:0,total:0,streak:0,best:0,lastDay:null,types:{}}};if(!x||typeof x!="object")return o;
- const n=(v,a,b,d)=>{v=parseFloat(v);return isNaN(v)?d:clp(v,a,b)},t=(v,m)=>String(v==null?"":v).slice(0,m),SK=["open","done","locked","expired"];
- const sq=q=>q&&typeof q=="object"?{id:t(q.id,40),kind:["daily","weekly","special","chain"].includes(q.kind)?q.kind:"daily",type:["demon","challenge","skill","cond"].includes(q.type)?q.type:"demon",title:t(q.title,80),desc:t(q.desc,200),key:q.key?t(q.key,60):null,name:q.name?t(q.name,120):null,d:n(q.d,-60,100,0),cls:q.cls?t(q.cls,20):null,skill:q.skill==null?null:n(q.skill,0,11,0),cond:CONDT[q.cond]?q.cond:null,ch:q.ch?normCH(q.ch):null,xp:n(q.xp,0,5000,0),status:SK.includes(q.status)?q.status:"open",created:n(q.created,0,9e15,0),due:q.due?n(q.due,0,9e15,0):null,chain:q.chain&&q.chain.id?{id:t(q.chain.id,40),step:n(q.chain.step,1,9,1)}:null,manual:!!q.manual,bonus:!!q.bonus}:null;
+function sanSet(s){return s&&typeof s=="object"?{weak:s.weak!==false,achOpen:!!s.achOpen,qOff:[-1,0,1].includes(+s.qOff)?+s.qOff:0,qSkill:s.qSkill!==false,qHc:["easy","medium","hard","insane","extreme"].includes(s.qHc)?s.qHc:null,qBase:typeof s.qBase=="string"&&s.qBase?s.qBase.slice(0,60):null}:{}}
+function sanQuests(x){const o={ver:0,daily:{key:null,list:[]},weekly:{key:null,list:[]},special:{key:null,list:[]},chain:null,hist:[],used:[],tmpl:[],chainDone:[],chainWeek:null,sx:{pts:{}},skW:{wk:null,g:{}},skLog:[],stats:{daily:0,weekly:0,special:0,chain:0,challenge:0,skill:0,cond:0,nopractice:0,weeklyDemon:0,total:0,streak:0,best:0,lastDay:null,types:{}}};if(!x||typeof x!="object")return o;
+ const n=(v,a,b,d)=>{v=parseFloat(v);return isNaN(v)?d:clp(v,a,b)},t=(v,m)=>String(v==null?"":v).slice(0,m),SK=["open","done","locked","expired"],has=(ob,k)=>Object.prototype.hasOwnProperty.call(ob,k);
+ const sg=g=>{g=g&&typeof g=="object"?g:{};const ty=typeof g.t=="string"&&has(GT,g.t)?g.t:"beat",r={t:ty};
+  if(ty=="beat"){r.cls=QCL.includes(g.cls)?g.cls:"easy";r.sk=g.sk==null?null:n(g.sk,0,11,0);r.msk=n(g.msk,1,5,4)}
+  else if(ty=="reach")r.p=n(g.p,1,100,50);else if(ty=="improve"){r.base=n(g.base,0,99,0);r.dl=n(g.dl,1,50,5)}
+  else if(ty=="range"||ty=="again"||ty=="section"){r.a=n(g.a,0,97,0);r.b=n(g.b,r.a+3,100,100);if(g.tid)r.tid=t(g.tid,40)}
+  else if(ty=="runs")r.n=n(g.n,1,20,3);
+  if(g.cnt>1)r.cnt=n(g.cnt,2,5,2);return r};
+ const sm=a=>(Array.isArray(a)?a:[]).slice(0,6).filter(m=>m&&typeof m.id=="string"&&has(MODS,m.id)).map(m=>m.id=="skill"?{id:"skill",k:n(m.k,0,11,0)}:{id:m.id});
+ const sq=q=>q&&typeof q=="object"?{id:/^[\w-]{1,40}$/.test(String(q.id))?String(q.id):"i-"+uid(),kind:["daily","weekly","special","chain"].includes(q.kind)?q.kind:"daily",type:typeof q.type=="string"&&has(GT,q.type)?q.type:"beat",goal:sg(q.goal),mods:sm(q.mods),title:t(q.title,80),desc:"",key:q.key&&okKey(String(q.key))&&/^[gn]/.test(String(q.key))?t(q.key,60):null,name:q.name?t(q.name,120):null,d:n(q.d,-60,100,0),cls:QCL.includes(q.cls)||CHD.includes(q.cls)?q.cls:null,cest:q.cest?1:0,pct:q.pct==null?null:n(q.pct,0,1,0),sk:q.sk==null?null:n(q.sk,0,11,0),ch:q.ch?normCH(q.ch):null,xp:n(q.xp,0,5000,0),diff:n(q.diff,0,30,0),status:SK.includes(q.status)?q.status:"open",ready:q.ready?1:0,beaten:q.beaten?t(q.beaten,120):null,created:n(q.created,0,9e15,0),due:q.due?n(q.due,0,9e15,0):null,doneAt:q.doneAt?n(q.doneAt,0,9e15,0):null,chain:q.chain&&q.chain.id?{id:t(q.chain.id,40),step:n(q.chain.step,1,9,1)}:null,bonus:!!q.bonus}:null;
+ if(+x.ver==QV)o.ver=QV;
  for(const k of["daily","weekly","special"])if(x[k]&&Array.isArray(x[k].list))o[k]={key:x[k].key?t(x[k].key,12):null,list:x[k].list.slice(0,6).map(sq).filter(Boolean)};
  if(x.chain&&Array.isArray(x.chain.list))o.chain={id:t(x.chain.id,40),tpl:t(x.chain.tpl,10),title:t(x.chain.title,60),n:3,cur:n(x.chain.cur,0,3,0),done:x.chain.done?1:0,list:x.chain.list.slice(0,3).map(sq).filter(Boolean)};
- o.hist=(Array.isArray(x.hist)?x.hist:[]).slice(-200).map(h=>({id:t(h.id,40),kind:t(h.kind,10),type:t(h.type,10),name:t(h.name,120),status:h.status=="done"?"done":"expired",t:n(h.t,0,9e15,0)}));
- o.used=(Array.isArray(x.used)?x.used:[]).slice(-120).map(v=>t(v,60));o.tmpl=(Array.isArray(x.tmpl)?x.tmpl:[]).slice(-60).map(v=>t(v,20));o.chainDone=(Array.isArray(x.chainDone)?x.chainDone:[]).slice(-20).map(v=>t(v,12));o.chainWeek=x.chainWeek?t(x.chainWeek,12):null;
+ o.hist=(Array.isArray(x.hist)?x.hist:[]).slice(-200).filter(h=>h&&typeof h=="object").map(h=>({id:t(h.id,40),kind:t(h.kind,10),type:t(h.type,10),goalT:typeof h.goalT=="string"&&has(GT,h.goalT)?h.goalT:null,sk:h.sk==null?null:n(h.sk,0,11,0),name:t(h.name,120),status:h.status=="done"?"done":"expired",t:n(h.t,0,9e15,0)}));
+ o.used=(Array.isArray(x.used)?x.used:[]).slice(-120).map(v=>t(v,60));o.tmpl=(Array.isArray(x.tmpl)?x.tmpl:[]).slice(-80).map(v=>t(v,20));o.chainDone=(Array.isArray(x.chainDone)?x.chainDone:[]).slice(-20).map(v=>t(v,12));o.chainWeek=x.chainWeek?t(x.chainWeek,12):null;
+ if(x.sx&&x.sx.pts&&typeof x.sx.pts=="object")for(let k=0;k<12;k++){const v=n(x.sx.pts[k],0,500,0);if(v)o.sx.pts[k]=Math.round(v*10)/10}
+ if(x.skW&&typeof x.skW=="object"){o.skW.wk=x.skW.wk?t(x.skW.wk,12):null;if(x.skW.g&&typeof x.skW.g=="object")for(let k=0;k<12;k++)if(x.skW.g[k])o.skW.g[k]=1}
+ o.skLog=(Array.isArray(x.skLog)?x.skLog:[]).slice(-60).filter(h=>h&&typeof h=="object").map(h=>({t:n(h.t,0,9e15,0),k:n(h.k,0,11,0),pts:n(h.pts,0,100,0),up:h.up?n(h.up,1,5,1):null}));
  const sx=x.stats&&typeof x.stats=="object"?x.stats:{};for(const k of Object.keys(o.stats))if(typeof o.stats[k]=="number")o.stats[k]=n(sx[k],0,1e6,0);o.stats.lastDay=sx.lastDay?t(sx.lastDay,12):null;
- if(sx.types&&typeof sx.types=="object")for(const k of["demon","challenge","skill","cond"])o.stats.types[k]=n(sx.types[k],0,1e6,0);return o}
+ if(sx.types&&typeof sx.types=="object")for(const k of Object.keys(GT))if(has(sx.types,k))o.stats.types[k]=n(sx.types[k],0,1e6,0);
+ for(const k of["demon","challenge","skill","cond"])if(sx.types&&has(sx.types,k)&&!(k in o.stats.types))o.stats.types[k]=n(sx.types[k],0,1e6,0);return o}
 function sanRoutes(r){return(Array.isArray(r)?r:[]).slice(-50).map(x=>({at:+x.at||0,a:x.a?String(x.a).slice(0,60):null,b:x.b?String(x.b).slice(0,60):null,keys:(Array.isArray(x.keys)?x.keys:[]).slice(0,30).map(k=>String(k).slice(0,60))}))}
 function applyRoad(r){if(!r||typeof r!="object")return;const id=k=>{const l=k&&byKey(String(k));return l?l.id:null};
  S.a=id(r.a);S.b=id(r.b);S.wish=(r.wish||[]).map(id).filter(x=>x!=null);S.ex=(r.ex||[]).map(id).filter(x=>x!=null);
@@ -982,9 +994,7 @@ $("out").addEventListener("click",()=>{});
 /* ===== QUESTS ===== */
 const CHD=["easy","normal","hard","harder","insane","easy demon","medium demon","hard demon","insane demon","extreme demon"];
 const CHMAP={none:["normal","hard"],easy:["harder","insane"],medium:["harder","insane"],hard:["insane","easy demon"],insane:["easy demon","medium demon"],extreme:["hard demon","insane demon"]};
-const QXP={dailyDemon:30,dailyChallenge:25,dailySkill:40,dailyCond:45,weeklyDemon:150,weeklyChallenge:90,weeklySkill:100,special:130,chainStep:40,chainBonus:200,condBonus:.25};
-const CONDT={nopractice:"Bedingung: ohne Practice Mode schaffen.",nowatch:"Bedingung: ohne vorher das komplette Gameplay anzusehen.",unfamiliar:"Bedingung: Gameplay-Stil, den du sonst wenig spielst.",unusual:"Bedingung: ein Demon, den du sonst nicht spielen würdest."};
-const QL={daily:"Daily",weekly:"Weekly",special:"Special",chain:"Chain"},QT={demon:"Demon",challenge:"Challenge",skill:"Skill-Focus",cond:"Sonderbedingung"};
+const QL={daily:"Daily",weekly:"Weekly",special:"Special",chain:"Chain"};
 let CH=[];try{CH=(JSON.parse(DATA.gdchal||"[]")||[]).map(normCH).filter(Boolean)}catch(e){}
 const saveCH=()=>{DATA.gdchal=JSON.stringify(CH);KV.set("gdchal",DATA.gdchal)};
 function inferSkill(n){const m=[[/wave/i,0],[/ship/i,1],[/cube/i,2],[/ball/i,3],[/ufo/i,4],[/robot|spider/i,5],[/swing/i,6],[/timing/i,7],[/precis/i,8],[/click|speed|spam/i,9],[/memory/i,10],[/dual/i,11]];for(const[r,i]of m)if(r.test(n))return i;return -1}
@@ -999,111 +1009,247 @@ const nextMidnight=()=>{const n=new Date();return new Date(n.getFullYear(),n.get
 const hashQ=s=>{let h=2166136261;for(const c of String(s)){h^=c.charCodeAt(0);h=Math.imul(h,16777619)}return h>>>0};
 const rng=seed=>{let a=hashQ(seed);return()=>{a=(a+0x6D2B79F5)|0;let t=Math.imul(a^(a>>>15),1|a);t=(t+Math.imul(t^(t>>>7),61|t))^t;return((t^(t>>>14))>>>0)/4294967296}};
 function qInit(){const Q=P.quests=P.quests&&typeof P.quests=="object"?P.quests:{};Q.daily=Q.daily||{key:null,list:[]};Q.weekly=Q.weekly||{key:null,list:[]};Q.special=Q.special||{key:null,list:[]};Q.chain=Q.chain||null;Q.hist=Q.hist||[];Q.used=Q.used||[];Q.tmpl=Q.tmpl||[];Q.chainDone=Q.chainDone||[];Q.chainWeek=Q.chainWeek||null;
+ Q.ver=+Q.ver||0;Q.sx=Q.sx&&typeof Q.sx=="object"?Q.sx:{};Q.sx.pts=Q.sx.pts&&typeof Q.sx.pts=="object"?Q.sx.pts:{};Q.skW=Q.skW&&typeof Q.skW=="object"?Q.skW:{wk:null,g:{}};Q.skW.g=Q.skW.g&&typeof Q.skW.g=="object"?Q.skW.g:{};Q.skLog=Array.isArray(Q.skLog)?Q.skLog:[];
  Q.stats=Object.assign({daily:0,weekly:0,special:0,chain:0,challenge:0,skill:0,cond:0,nopractice:0,weeklyDemon:0,total:0,streak:0,best:0,lastDay:null,types:{}},Q.stats||{});Q.stats.types=Q.stats.types||{};return Q}
-// Persönliche Basis: komfortable Schwierigkeit (Median der letzten Abschlüsse, nie über dem Hardest), nicht nur der Hardest
-function qBase(){const ds=Object.values(P.done).map(x=>({d:x.d,cls:x.cls,at:String(x.at||"")})).sort((a,b)=>b.at.localeCompare(a.at)),hard=P.hard&&P.done[P.hard];let comfort=null,cl=null;
- if(ds.length){const r=ds.slice(0,8).map(x=>x.d).sort((a,b)=>a-b);comfort=r[Math.floor(r.length/2)];if(hard)comfort=Math.min(comfort,hard.d);const cs=ds.slice(0,8).map(x=>x.cls).filter(Boolean);cl=cs.sort((a,b)=>cs.filter(v=>v==b).length-cs.filter(v=>v==a).length)[0]||null}
- else if(P.set.qBase){const l=byKey(P.set.qBase);if(l){comfort=l.d;cl=clsOf(l)}}
- return comfort==null?null:{comfort,hard:hard?hard.d:comfort,cls:cl||"medium"}}
 const activeQ=Q=>[...Q.daily.list,...Q.weekly.list,...Q.special.list,...(Q.chain&&!Q.chain.done?Q.chain.list:[])];
-function qPool(Q,o){const used=new Set([...Q.used.slice(-40),...activeQ(Q).map(q=>q.key)]),ex=new Set(S.ex.map(i=>L[i]&&lk(L[i])));
- return L.filter(l=>!isDone(l)&&!used.has(lk(l))&&!ex.has(lk(l))&&Math.abs(l.d-o.target)<=o.band&&l.d<=o.max&&(o.skill==null||l.s[o.skill]>=4)&&(l.e==null||l.e>=5)&&!(o.not&&o.not.has(lk(l))))}
-function qPick(Q,rnd,o){let band=o.band||2.5,pool=[];for(let i=0;i<4&&pool.length<4;i++){pool=qPool(Q,{...o,band});band*=1.6}if(!pool.length)return null;
- pool.forEach(l=>{l._qs=-Math.abs(l.d-o.target)+(l.gid?.5:0)+((l.e==null?6:l.e)-6)*.15+rnd()*1.5});pool.sort((a,b)=>b._qs-a._qs);return pool[Math.floor(rnd()*Math.min(6,pool.length))]}
-const qxp=(b,d,cond)=>Math.round(b*clp(1+.04*d,.6,2.5)*(cond?1+QXP.condBonus:1));
 const chFor=(Q,rnd,base,skill)=>{const ok=CHMAP[base.cls]||CHMAP.medium,used=new Set(Q.used.slice(-30)),p=CH.filter(c=>ok.includes(c.diff)&&!used.has("c"+c.id)&&(skill==null||c.skill==skill));return p.length?p[Math.floor(rnd()*p.length)]:null};
-function mkQ(kind,type,l,o){return{id:kind+"-"+uid(),kind,type,title:o.title,desc:o.desc,key:l?lk(l):null,name:l?l.n:null,d:l?l.d:(o.d||0),cls:l?clsOf(l):(o.cls||null),skill:o.skill==null?null:o.skill,cond:o.cond||null,ch:o.ch||null,xp:o.xp,status:o.status||"open",created:Date.now(),due:o.due||null,chain:o.chain||null,manual:!!o.manual}}
-function qSkill(Q,rnd,base,exclude){const cnt=Array(12).fill(0);Object.keys(P.done).forEach(k=>{const l=byKey(k);if(l)l.s.forEach((v,i)=>{if(v>=4)cnt[i]++})});const recent=Q.tmpl.slice(-4);
- const c=[0,1,2,3,4,5,6,7,8,9,10,11].filter(i=>!(exclude||[]).includes(i)&&!recent.includes("sk:"+i)).map(i=>({i,w:(P.skills[i]!=null?5-P.skills[i]:2)+Math.max(0,3-cnt[i])+rnd()*2})).sort((a,b)=>b.w-a.w);return c.map(x=>x.i)}
-function qCommon(base,wk){const off=(+P.set.qOff||0)*1.5;return{tgt:base.comfort+off+(wk?2:0),max:base.hard+3}}
-function qDemonQ(Q,rnd,base,kind,o){const{tgt,max}=qCommon(base,kind=="weekly");const l=qPick(Q,rnd,{target:tgt+(o.add||0),band:2.5,max,skill:o.skill,not:o.not});if(!l)return null;Q.used.push(lk(l));
- return mkQ(kind,o.type,l,{title:o.title,desc:o.desc,skill:o.skill,cond:o.cond,xp:qxp(o.xp,l.d,o.cond),due:o.due})}
-function qChalQ(Q,rnd,base,kind,o){const c=chFor(Q,rnd,base,o.skill);if(!c)return null;Q.used.push("c"+c.id);return mkQ(kind,"challenge",null,{title:o.title,desc:o.desc,skill:c.skill,xp:qxp(o.xp,base.comfort),due:o.due,ch:c,cls:c.diff})}
-function genDaily(Q,base,day){const rnd=rng(P.id+"|d|"+day),due=nextMidnight().getTime(),list=[];
- const a=qDemonQ(Q,rnd,base,"daily",{type:"demon",title:"Daily Demon",desc:"Schaffe diesen Demon. Er passt zu deiner aktuellen Spielstärke.",xp:QXP.dailyDemon,due});if(a)list.push(a);
- const last=(Q.tmpl.filter(t=>t.startsWith("d2:")).pop()||"").slice(3),opts=["challenge","skill","cond"].filter(t=>t!=last);for(let i=opts.length-1;i>0;i--){const j=Math.floor(rnd()*(i+1));[opts[i],opts[j]]=[opts[j],opts[i]]}
- const mk={challenge:()=>qChalQ(Q,rnd,base,"daily",{title:"Daily Challenge",desc:"Schaffe diese Challenge.",xp:QXP.dailyChallenge,due}),
-  skill:()=>{for(const k of qSkill(Q,rnd,base)){const q=qDemonQ(Q,rnd,base,"daily",{type:"skill",skill:k,title:"Skill-Focus: "+K[k],desc:"Schaffe einen Demon, der "+K[k]+" trainiert.",xp:QXP.dailySkill,due});if(q){Q.tmpl.push("sk:"+k);return q}}return null},
-  cond:()=>{const c=["nopractice","nowatch","unfamiliar","unusual"][Math.floor(rnd()*4)],q=qDemonQ(Q,rnd,base,"daily",{type:"cond",cond:c,title:"Daily mit Sonderbedingung",desc:"Ein Demon mit einer zusätzlichen Bedingung.",xp:QXP.dailyCond,due});return q}};
- let b=null,pick=null;for(const t of opts){b=mk[t]();if(b){pick=t;break}}if(b){list.push(b);Q.tmpl.push("d2:"+pick)}
- if(rnd()<.2){const t=opts.find(x=>x!=pick&&true),q=t&&mk[t]();if(q){q.title="Bonus: "+q.title;q.bonus=1;list.push(q)}}return list}
-function genWeekly(Q,base,wk){const rnd=rng(P.id+"|w|"+wk),due=nextMonday().getTime(),list=[];
- const a=qDemonQ(Q,rnd,base,"weekly",{type:"demon",title:"Weekly Demon",desc:"Dein Demon der Woche: eine angenehme Herausforderung etwas über deinem gewohnten Niveau.",xp:QXP.weeklyDemon,due});if(a)list.push(a);
- const c=qChalQ(Q,rnd,base,"weekly",{title:"Weekly Challenge",desc:"Schaffe diese Challenge.",xp:QXP.weeklyChallenge,due});if(c)list.push(c);
- const ks=qSkill(Q,rnd,base);let n=c?1:2;for(const k of ks){if(!n)break;const q=qDemonQ(Q,rnd,base,"weekly",{type:"skill",skill:k,title:"Weekly Skill: "+K[k],desc:"Schaffe einen Demon, der "+K[k]+" trainiert.",xp:QXP.weeklySkill,due});if(q){Q.tmpl.push("sk:"+k);list.push(q);n--}}return list}
-function genSpecial(Q,base,wk){const rnd=rng(P.id+"|s|"+wk),due=nextMonday().getTime(),tm=["sight","comfort","skillspec","consist","random","chal"].filter(t=>!Q.tmpl.slice(-3).includes("sp:"+t));
- for(let i=tm.length-1;i>0;i--){const j=Math.floor(rnd()*(i+1));[tm[i],tm[j]]=[tm[j],tm[i]]}
- for(const t of tm){let q=null;
-  if(t=="sight")q=qDemonQ(Q,rnd,base,"special",{type:"cond",cond:"nopractice",add:.5,title:"Sight Reader",desc:"Schaffe diesen Demon ohne vorheriges Üben im Practice Mode.",xp:QXP.special,due});
-  else if(t=="comfort"){const ks=qSkill(Q,rnd,base).reverse();for(const k of ks){q=qDemonQ(Q,rnd,base,"special",{type:"cond",cond:"unfamiliar",skill:k,title:"Out of Comfort Zone",desc:"Ein Demon mit "+K[k]+", das du bisher wenig trainiert hast.",xp:QXP.special,due});if(q)break}}
-  else if(t=="skillspec"){for(const k of qSkill(Q,rnd,base)){q=qDemonQ(Q,rnd,base,"special",{type:"skill",skill:k,add:1.5,title:"Skill Specialist: "+K[k],desc:"Ein besonders passender "+K[k]+"-Demon.",xp:QXP.special,due});if(q)break}}
-  else if(t=="consist"){const ds=Object.entries(P.done).filter(([k,x])=>byKey(k)&&Math.abs(x.d-base.comfort)<=3);if(ds.length){const[k,x]=ds[Math.floor(rnd()*ds.length)],l=byKey(k);q=mkQ("special","cond",l,{title:"Consistency Challenge",desc:"Schaffe „"+l.n+"“ erneut. Er ist schon in deiner Sammlung, es gibt nur Quest-XP.",cond:"nopractice",xp:qxp(QXP.special,l.d,true),due,manual:true})}}
-  else if(t=="random")q=qDemonQ(Q,rnd,base,"special",{type:"demon",add:rnd()*3-1,title:"Random Pick",desc:"Ein zufälliger, passender Demon aus deinem Bereich.",xp:QXP.special,due});
-  else q=qChalQ(Q,rnd,base,"special",{title:"Challenge Specialist",desc:"Schaffe diese Challenge.",xp:QXP.special,due});
-  if(q){Q.tmpl.push("sp:"+t);return[q]}}return[]}
-const CHAINS=[{id:"wave",title:"Wave Journey",skill:0},{id:"ship",title:"Ship Master",skill:1},{id:"coll",title:"Demon Collector"},{id:"sight",title:"Sight Reading Journey",cond:"nopractice"},{id:"ext",title:"Extreme Progression",min:["insane","extreme"]},{id:"expl",title:"Skill Explorer",distinct:1}];
-function genChain(Q,base,wk){const rnd=rng(P.id+"|c|"+wk),ok=CHAINS.filter(c=>!Q.chainDone.slice(-3).includes(c.id)&&(!c.min||c.min.includes(base.cls)));if(!ok.length)return null;const t=ok[Math.floor(rnd()*ok.length)],cid=uid(),ramp=t.id=="ext"?[1,3,5]:[0,1.5,3],ks=t.distinct?qSkill(Q,rnd,base).slice(0,6):[],steps=[],off=(+P.set.qOff||0)*1.5,not=new Set();
- for(let i=0;i<3;i++){let q=null;const sk=t.skill!=null?t.skill:null;
-  if(i==0&&sk!=null){const c=chFor(Q,rnd,base,sk);if(c){q=mkQ("chain","challenge",null,{title:t.title+" 1/3",desc:"Schaffe diese Challenge als Einstieg.",skill:c.skill,xp:qxp(QXP.chainStep,base.comfort),ch:c,cls:c.diff,chain:{id:cid,step:1}})}}
-  if(!q){const kk=t.distinct?ks[i]:sk,l=qPick(Q,rnd,{target:base.comfort+off+ramp[i]-(i==0&&sk!=null?1:0),band:2.5,max:base.hard+(t.id=="ext"?8:3),skill:kk,not});
-   if(!l&&t.distinct)return null;if(!l)return null;not.add(lk(l));q=mkQ("chain",i==2&&t.cond?"cond":"demon",l,{title:t.title+" "+(i+1)+"/3",desc:"Schritt "+(i+1)+" von 3.",skill:kk,cond:i==2?t.cond:null,xp:qxp(QXP.chainStep,l.d,i==2&&t.cond),chain:{id:cid,step:i+1}})}
-  q.status=i==0?"open":"locked";steps.push(q);if(q.key)Q.used.push(q.key)}
- return{id:cid,tpl:t.id,title:t.title,n:3,cur:0,done:0,list:steps}}
-function archive(Q,list){list.forEach(q=>{if(q.status!="locked")Q.hist.push({id:q.id,kind:q.kind,type:q.type,name:q.name||(q.ch&&q.ch.name)||q.title,status:q.status=="done"?"done":"expired",t:Date.now()})});if(Q.hist.length>200)Q.hist.splice(0,Q.hist.length-200);if(Q.used.length>120)Q.used.splice(0,Q.used.length-120);if(Q.tmpl.length>60)Q.tmpl.splice(0,Q.tmpl.length-60)}
+/* ===== QUESTS v2: Hardest-basiert, kleine Ziele, kombinierbare Modifikatoren, Skill-Fortschritt ===== */
+const QCL=["easy","medium","hard","insane","extreme"],QV=2;
+const QXP={chainBonus:200};
+const XPB={daily:24,weekly:100,special:130,chain:40},QCAP={daily:5,weekly:6.5,special:7.5,chain:6};
+const GT={beat:"Neuer Demon",reach:"Prozentziel",improve:"Bestwert",range:"Abschnitts-Run",runs:"Runs",again:"Wiederholung",section:"Neuer Abschnitt",chal:"Challenge"};
+const tierCls=t=>t<4.5?"easy":t<9.5?"medium":t<15?"hard":t<21?"insane":"extreme";
+// Klasse eines Levels: In-Game-Difficulty (GDDL/Demonlist), sonst aus dem GDDL-Tier, sonst aus der Schwierigkeitszahl geschätzt (est = true)
+function qClsInfo(l){const c=clsOf(l);if(c)return{c,est:false};return{c:tierCls(l.t),est:!l.v}}
+const qCls=l=>qClsInfo(l).c;
+// Hardest: schwerster geschaffter Demon. Die Klasse kann in der Oberfläche überschrieben werden.
+function qBase(){let hl=P.hard&&P.done[P.hard]?byKey(P.hard):null;
+ if(!hl)for(const k of Object.keys(P.done)){const l=byKey(k);if(l&&(!hl||l.d>hl.d))hl=l}
+ if(!hl&&P.set.qBase)hl=byKey(P.set.qBase);
+ const ov=QCL.includes(P.set.qHc)?P.set.qHc:null;let auto=null,est=false;
+ if(hl){const i=qClsInfo(hl),dn=P.done[lk(hl)];auto=(dn&&dn.cls&&QCL.includes(dn.cls))?dn.cls:i.c;est=!(dn&&dn.cls&&QCL.includes(dn.cls))&&i.est}
+ const c=ov||auto;if(!c)return null;const H=QCL.indexOf(c);
+ return{H,cls:c,hardName:hl?hl.n:null,d:hl?hl.d:0,manual:!!ov,est:!ov&&est,comfort:hl?hl.d:0,hard:hl?hl.d:0}}
+// Daily: zwei bis drei Klassen unter dem Hardest, Weekly/Special: ein bis zwei Klassen darunter (Insane → Easy–Medium bzw. Medium–Hard)
+const qBand=(base,kind)=>{const wk=kind=="weekly"||kind=="special",H=base.H;return[Math.max(0,H-(wk?2:3)),Math.max(0,Math.min(4,H-(wk?1:2)))]};
+// ---- Modifikatoren ----
+const RG=["reach","improve","range","section","again","runs"];
+const MODS={
+ skill:{n:"Skill-Fokus",ic:"🎯",w:.4,g:"skill",a:0,d:"Das Quest-Level trainiert diesen Skill überdurchschnittlich.",ok:()=>false},
+ nopractice:{n:"Kein Practice Mode",ic:"🚫",w:1,g:"mode",a:1,d:"Keine Practice-Runs mit Checkpoints.",ok:q=>["beat","reach","improve","runs"].includes(q.goal.t)},
+ nostart:{n:"Keine Start Position",ic:"📍",w:.9,g:"mode",a:1,d:"Kein Start Position Run, das Level wird von Anfang an gespielt.",ok:q=>q.goal.t=="beat"},
+ nocp:{n:"Keine Checkpoints",ic:"⛔",w:.6,g:"mode",a:1,d:"Auch im Practice Mode keine Checkpoints setzen.",ok:q=>q.goal.t!="chal"},
+ normal:{n:"Nur Normal Mode",ic:"🎯",w:1.3,g:"mode",a:1,d:"Nur Runs im Normal Mode, ohne Practice und ohne Start Position.",ok:q=>["beat","reach","improve","runs"].includes(q.goal.t)},
+ oneshot:{n:"Zusammenhängender Durchgang",ic:"🔗",w:.8,g:"flow",a:1,d:"Der Run wird in einem Durchgang gespielt, ohne Pause dazwischen.",ok:q=>["reach","improve","range","section","again"].includes(q.goal.t)},
+ nowatch:{n:"Gameplay vorher nicht ansehen",ic:"🙈",w:.8,g:"prep",a:1,d:"Schau dir vorher kein Gameplay des Levels an.",ok:q=>["beat","reach","runs"].includes(q.goal.t)},
+ fresh:{n:"Unbekanntes Level",ic:"🆕",w:.4,g:"prep",a:0,d:"Ein Level, das noch nicht in deinem Training ist.",ok:q=>!!q.key&&!!byKey(q.key)&&!findProj(byKey(q.key))&&["beat","reach","runs","range"].includes(q.goal.t)},
+ replay:{n:"Erst einen Abschnitt wiederholen",ic:"🔁",w:.4,g:"prep",a:1,d:"Spiele vorher einen bereits geschafften Abschnitt erneut erfolgreich.",ok:q=>["reach","improve","range","section","runs"].includes(q.goal.t)},
+ warmup:{n:"Aufwärmen",ic:"🔥",w:.3,g:"prep",a:1,d:"Spiele vorher 5 Minuten auf einem leichteren Level.",ok:q=>q.goal.t!="chal"},
+ twice:{n:"Zweimal schaffen",ic:"2️⃣",w:1,g:"cons",a:0,cnt:2,d:"Das Ziel muss in zwei Runs erreicht werden.",ok:q=>["reach","range","section","again","improve"].includes(q.goal.t)},
+ thrice:{n:"Dreimal schaffen",ic:"3️⃣",w:1.5,g:"cons",a:0,cnt:3,d:"Das Ziel muss in drei Runs erreicht werden.",ok:q=>["reach","range"].includes(q.goal.t)},
+ stretch:{n:"5 % mehr",ic:"➕",w:.7,g:"goal",a:0,d:"Das Ziel liegt 5 Prozentpunkte höher.",ok:q=>(q.goal.t=="reach"&&q.goal.p<=90)||(q.goal.t=="improve"&&q.goal.base+q.goal.dl<=90)},
+ attempts:{n:"Höchstens 15 Versuche",ic:"🎟️",w:.9,g:"lim",a:1,d:"Du hast nur 15 Versuche für diese Quest.",ok:q=>["reach","improve","range","section"].includes(q.goal.t)},
+ timebox:{n:"Innerhalb von 30 Minuten",ic:"⏱️",w:.5,g:"lim",a:1,d:"Spiele die Quest innerhalb von 30 Minuten am Stück.",ok:q=>q.goal.t!="beat"&&q.goal.t!="chal"}
+};
+const qAttest=q=>(q.mods||[]).filter(m=>MODS[m.id]&&MODS[m.id].a);
+// ---- Hilfsfunktionen ----
+const hasP=k=>Object.prototype.hasOwnProperty.call(TR().projects,k),qProjFor=q=>{if(!q.key)return null;if(hasP(q.key))return TR().projects[q.key];const k="n"+String(q.name||"").toLowerCase();return hasP(k)?TR().projects[k]:null};
+const qProj=l=>{const k=findProj(l);return k?TR().projects[k]:null};
+function qPct(ci){const by=[[],[],[],[],[]];for(const l of L)by[ci.get(l)].push(l);const m=new Map();for(const a of by){a.sort((x,y)=>x.d-y.d);a.forEach((l,i)=>m.set(l,a.length>1?i/(a.length-1):.5))}return m}
+function qAdapt(Q,kind){const h=Q.hist.filter(x=>(kind=="special"||kind=="chain")?(x.kind==kind||x.kind=="weekly"):x.kind==kind).slice(-8);let adj=0;
+ if(h.length>=4){const r=h.filter(x=>x.status=="done").length/h.length;if(r<.4)adj-=.8;else if(r>.85)adj+=.5}
+ const since=Date.now()-7*864e5;let runs=0;for(const pr of projs())for(const r of pr.runs)if(r.t>=since)runs+=r.c||1;
+ let reg=0;for(const x of Object.values(P.done)){const t=Date.parse(x.at);if(t>=since)reg++}
+ const act=runs+reg*5;if(act==0)adj-=.4;else if(act>=40)adj+=.2;adj+=(+P.set.qOff||0)*.6;
+ return{adj:clp(adj,-1.5,1.2),runs,reg,act,rate:h.length?h.filter(x=>x.status=="done").length/h.length:null}}
+function qCtx(Q,rnd,kind,base){const act=activeQ(Q),ad=qAdapt(Q,kind),ci=new Map();for(const l of L)ci.set(l,QCL.indexOf(qCls(l)));
+ return{Q,rnd,kind,base,ad,ci,used:new Set([...Q.used.slice(-40),...act.map(q=>q.key).filter(Boolean)]),cur:new Set(act.map(q=>q.key).filter(Boolean)),ex:new Set(S.ex.map(i=>L[i]&&lk(L[i]))),pct:qPct(ci),sigs:new Set(act.map(qSig)),
+  cap:clp(((kind=="weekly"||kind=="special")?.75:.6)+ad.adj*.1,.25,.95),cap2:QCAP[kind]+ad.adj*.6}}
+const qSig=q=>q.goal?(q.goal.t=="beat"?"beat|"+q.goal.cls+"|"+(q.sk==null?"":q.sk):q.goal.t+"|"+(q.key||"")+"|"+(q.sk==null?"":q.sk)):"x"+q.id;
+function qPool(ctx,o){const out=[];for(const l of L){const ci=ctx.ci.get(l);if(ci<o.cls[0]||ci>o.cls[1])continue;const k=lk(l);
+  if(ctx.used.has(k)||ctx.ex.has(k)||(o.notDone&&isDone(l))||(o.skill!=null&&l.s[o.skill]<(o.minSk||4)))continue;if(l.e!=null&&l.e<4.5)continue;out.push(l)}return out}
+function qPickLvl(ctx,o){let pool=qPool(ctx,o);if(!pool.length&&o.skill!=null&&(o.minSk||4)>3){o={...o,minSk:3};pool=qPool(ctx,o)}if(!pool.length)return null;
+ const w=pool.map(l=>{const p=ctx.pct.get(l);const bias=Math.exp(-3*Math.max(0,(p==null?.5:p)-ctx.cap)),cb=1+(o.cls[1]-ctx.ci.get(l))*.6;return Math.max(.02,bias*cb*(l.gid?1.15:1)*(.8+ctx.rnd()*.6)*(l.e==null?1:.85+l.e/20))});
+ let s=0;w.forEach(x=>s+=x);let r=ctx.rnd()*s;for(let i=0;i<pool.length;i++){r-=w[i];if(r<=0)return{l:pool[i],msk:o.minSk||4}}return{l:pool[pool.length-1],msk:o.minSk||4}}
+// Level für Prozent-Quests: bevorzugt das, was du ohnehin trainierst (tatsächliche Spielaktivität), sonst passende Level im Band
+function qLvlRun(ctx,band,o){const hi=Math.min(4,band[1]+((ctx.kind=="weekly"||ctx.kind=="special")?1:0));
+ let c=projs().filter(p=>!p.arch&&!p.paused).map(p=>({p,l:byKey(p.key)})).filter(x=>x.l&&!ctx.cur.has(lk(x.l))&&!ctx.ex.has(lk(x.l))&&!isDone(x.l)&&ctx.ci.get(x.l)<=hi);
+ if(c.length&&ctx.rnd()<.7){if(o.sk!=null){const m=c.filter(x=>x.l.s[o.sk]>=3);if(m.length)c=m}c.sort((a,b)=>b.p.created-a.p.created+(ctx.rnd()-.5)*864e5*3);return c[Math.min(c.length-1,Math.floor(ctx.rnd()*Math.min(3,c.length)))].l}
+ const r=qPickLvl(ctx,{cls:band,maxPct:ctx.cap,skill:o.sk,notDone:true});return r?r.l:null}
+function qMk(kind,goal,l,o){o=o||{};return{id:kind+"-"+uid(),kind,type:goal.t,goal,mods:[],title:GT[goal.t],desc:"",key:l?lk(l):null,name:l?l.n:null,d:l?l.d:0,cls:l?qCls(l):(o.cls||null),cest:l?(qClsInfo(l).est?1:0):0,pct:o.pct==null?null:o.pct,sk:o.sk==null?null:o.sk,status:"open",created:Date.now(),due:o.due||null,chain:o.chain||null,xp:0,diff:0,ready:0,ch:o.ch||null}}
+function qBuild(ctx,t,band,o){const Q=ctx.Q,kind=ctx.kind,pctOf=l=>ctx.pct.get(l);
+ if(t=="chal"){const c=chFor(Q,ctx.rnd,{cls:QCL[ctx.base.H]},o.sk);if(!c)return null;Q.used.push("c"+c.id);return qMk(kind,{t:"chal"},null,{sk:c.skill,cls:c.diff,ch:c,due:o.due})}
+ if(t=="beat"){let r=qPickLvl(ctx,{cls:band,maxPct:ctx.cap,skill:o.sk,notDone:true}),sk=o.sk;if(!r&&sk!=null){r=qPickLvl(ctx,{cls:band,maxPct:ctx.cap,skill:null,notDone:true});sk=null}if(!r)return null;
+  return qMk(kind,{t:"beat",cls:qCls(r.l),sk:sk,msk:r.msk},r.l,{sk,pct:pctOf(r.l),due:o.due})}
+ const l=qLvlRun(ctx,band,o);if(!l)return null;const pr=qProj(l),b0=pr?best0Of(pr):0,c=qCls(l);let goal=null;const sk=o.sk!=null&&l.s[o.sk]>=3?o.sk:null,ad=ctx.ad;
+ if(t=="reach"){let p=b0>0?Math.min(95,Math.ceil((b0+6)/5)*5):({easy:50,medium:40,hard:35,insane:30,extreme:25})[c]||40;if(ad.adj<-.5)p=Math.max(20,p-10);if(p<=b0)p=Math.min(100,b0+5);goal={t,p}}
+ else if(t=="improve"){if(!(b0>=10&&b0<=94))return null;goal={t,base:b0,dl:5}}
+ else if(t=="range"){let A=b0>=40?Math.max(0,Math.floor((b0-25)/5)*5):[20,30,40,50][Math.floor(ctx.rnd()*4)];A=Math.min(A,70);goal={t,a:A,b:Math.min(100,A+30)}}
+ else if(t=="runs"){goal={t,n:(ctx.kind=="weekly"||ctx.kind=="special"?6:3)-(ad.act==0?1:0)}}
+ else if(t=="again"){const dn=pr?pr.tasks.filter(x=>x.s=="done"&&x.b>x.a&&x.b-x.a<=70):[];if(!dn.length)return null;const x=dn[Math.floor(ctx.rnd()*dn.length)];goal={t,a:x.a,b:x.b,tid:x.id}}
+ else if(t=="section"){const op=pr?pr.tasks.filter(x=>x.s=="open"&&x.b>x.a&&x.b-x.a<=50).sort((x,y)=>x.a-y.a):[];if(!op.length)return null;const x=op[Math.floor(ctx.rnd()*Math.min(3,op.length))];goal={t,a:x.a,b:x.b,tid:x.id}}
+ else return null;
+ return qMk(kind,goal,l,{sk,pct:pctOf(l),due:o.due})}
+// Schwierigkeit einer Quest: Level, gefordertes Ziel, Modifikatoren, persönliches Skillprofil
+function qDiff(q,base){let s=0;const g=q.goal;const lc=q.cls?QCL.indexOf(q.cls):-1;
+ s+=lc>=0?clp(1.5+(lc-(base.H-3))*.55,.3,3.2):1.2;if(q.pct!=null)s+=q.pct*.8;
+ const gp={beat:1.3,reach:clp((g.p||40)/100*2.4,.3,2.4),improve:.4+(g.dl||5)*.06,range:clp(((g.b||70)-(g.a||40))/100*2.2,.3,2),runs:.2*(g.n||3),again:.7,section:1,chal:1.4}[g.t];s+=gp==null?1:gp;
+ for(const m of q.mods||[]){const d=MODS[m.id];if(d)s+=d.w}
+ if(q.sk!=null&&P.skills[q.sk]!=null)s+=clp((2.5-P.skills[q.sk])*.18,-.4,.5);return Math.round(s*10)/10}
+const nMods=(kind,ad,rnd)=>{const t=kind=="daily"?[.35,.85,1]:kind=="weekly"?[.15,.6,.9,1]:kind=="special"?[0,.25,.75,1]:[.4,.9,1],sh=clp(-ad.adj*.12,-.15,.15),r=rnd();let i=0;while(i<t.length-1&&r>t[i]+sh)i++;return i};
+function qMods(q,ctx,room,max){const out=[],gs=new Set(),rec=ctx.Q.tmpl.slice(-10);let left=room,heavy=false;const want=Math.min(max,nMods(ctx.kind,ctx.ad,ctx.rnd));
+ const ids=Object.keys(MODS).filter(id=>MODS[id].ok(q));
+ while(out.length<want){const c=ids.filter(id=>!out.includes(id)&&!gs.has(MODS[id].g)&&MODS[id].w<=left+.001&&!(heavy&&MODS[id].w>=1.2));if(!c.length)break;
+  const ws=c.map(id=>(1/(.5+MODS[id].w))*(rec.includes("m:"+id)?.35:1)*(.7+ctx.rnd()*.6));let s=0;ws.forEach(x=>s+=x);let r=ctx.rnd()*s,pick=c[c.length-1];for(let i=0;i<c.length;i++){r-=ws[i];if(r<=0){pick=c[i];break}}
+  out.push(pick);gs.add(MODS[pick].g);left-=MODS[pick].w;if(MODS[pick].w>=1.2)heavy=true}
+ return out.map(id=>({id}))}
+function qFinish(ctx,q,maxM){const base=ctx.base;q.mods=q.sk!=null?[{id:"skill",k:q.sk}]:[];const d0=qDiff(q,base),room=ctx.cap2-d0;
+ if(maxM>0&&room>=.3&&q.goal.t!="chal")q.mods.push(...qMods(q,ctx,room,maxM));
+ for(const m of q.mods){const d=MODS[m.id];if(!d)continue;if(m.id=="stretch"){if(q.goal.t=="reach")q.goal.p=Math.min(100,q.goal.p+5);else q.goal.dl=(q.goal.dl||5)+5}if(d.cnt)q.goal.cnt=d.cnt}
+ q.diff=qDiff(q,base);q.xp=Math.round(XPB[q.kind]*(.75+.1*q.diff));return q}
+function qSkillOrder(ctx,band){const cnt=Array(12).fill(0);for(const l of L){const c=QCL.indexOf(qCls(l));if(c<band[0]||c>band[1]||isDone(l))continue;for(let i=0;i<12;i++)if(l.s[i]>=4)cnt[i]++}
+ const dn=Array(12).fill(0),der=Array(12).fill(0);for(const k of Object.keys(P.done)){const l=byKey(k);if(l)for(let i=0;i<12;i++){if(l.s[i]>=4)dn[i]++;if(l.s[i]>der[i])der[i]=l.s[i]}}
+ const rec=ctx.Q.tmpl.slice(-8);
+ return[...Array(12).keys()].filter(i=>cnt[i]>=2).map(i=>({i,w:(5-(P.skills[i]!=null?P.skills[i]:(der[i]||2)))+Math.max(0,3-dn[i])*.5+ctx.rnd()*2.2-(rec.includes("sk:"+i)?2.5:0)})).sort((a,b)=>b.w-a.w).map(x=>x.i)}
+function qTplW(ctx,kind){const Q=ctx.Q,hist=Q.hist.slice(-12),W=(kind=="weekly"||kind=="special")?{beat:3.5,reach:1.5,improve:2,range:1.5,runs:1.5,again:1,section:2,chal:.8}:{beat:3,reach:2,improve:2.5,range:1.5,runs:2,again:1,section:1.5,chal:.6};
+ const act=projs().some(p=>!p.arch&&!p.paused);
+ for(const t of Object.keys(W)){let w=W[t];w*=Math.pow(.45,Q.tmpl.slice(-6).filter(x=>x=="t:"+t).length);const hs=hist.filter(h=>h.goalT==t);if(hs.length)w*=hs[hs.length-1].status=="done"?1.15:.55;
+  if(act&&["reach","improve","runs","section","again"].includes(t))w*=1.25;if(!act&&["improve","section","again"].includes(t))w*=.4;if(t=="chal"&&!CH.length)w=0;W[t]=w}return W}
+function qRegister(Q,q){Q.used.push(q.key||"x");Q.tmpl.push("t:"+q.goal.t);if(q.sk!=null)Q.tmpl.push("sk:"+q.sk);q.mods.forEach(m=>{if(m.id!="skill")Q.tmpl.push("m:"+m.id)})}
+function qBatch(Q,base,kind,n,rnd,due){const ctx=qCtx(Q,rnd,kind,base),band=qBand(base,kind),skills=qSkillOrder(ctx,band),list=[],usedT=new Set();let si=0;const wantSk=Math.max(1,Math.round(n*.6));
+ for(let i=0;i<n;i++){const W=qTplW(ctx,kind),order=Object.entries(W).filter(([t,w])=>w>0&&!usedT.has(t)).map(([t,w])=>[t,-Math.log(1-rnd())/w]).sort((a,b)=>a[1]-b[1]).map(x=>x[0]);let q=null;
+  for(const t of order){const sk=list.filter(x=>x.sk!=null).length<wantSk&&skills[si]!=null?skills[si]:null,c=qBuild(ctx,t,band,{sk,due});if(!c||ctx.sigs.has(qSig(c)))continue;q=c;if(sk!=null&&c.sk===sk)si++;usedT.add(t);break}
+  if(!q)continue;qFinish(ctx,q,kind=="special"?3:kind=="weekly"?3:2);ctx.sigs.add(qSig(q));if(q.key){ctx.used.add(q.key);ctx.cur.add(q.key)}list.push(q);qRegister(Q,q)}
+ return list}
+const genDaily=(Q,base,day)=>qBatch(Q,base,"daily",qAdapt(Q,"daily").act==0&&(qAdapt(Q,"daily").rate||1)<.4?2:3,rng(P.id+"|d|"+day),nextMidnight().getTime());
+const genWeekly=(Q,base,wk)=>qBatch(Q,base,"weekly",3,rng(P.id+"|w|"+wk),nextMonday().getTime());
+const genSpecial=(Q,base,wk)=>qBatch(Q,base,"special",1,rng(P.id+"|s|"+wk),nextMonday().getTime());
+const CHAINS=[{id:"stairs",title:"Prozent-Treppe"},{id:"skill",title:"Skill-Serie"},{id:"ladder",title:"Demon-Leiter"}];
+function genChain(Q,base,wk){const rnd=rng(P.id+"|c|"+wk),ok=CHAINS.filter(c=>!Q.chainDone.slice(-2).includes(c.id));if(!ok.length)return null;const th=ok[Math.floor(rnd()*ok.length)],cid=uid(),ctx=qCtx(Q,rnd,"chain",base),band=qBand(base,"weekly"),steps=[];
+ const fin=(q,i,mm)=>{qFinish(ctx,q,mm==null?(i==0?0:1):mm);q.chain={id:cid,step:i+1};q.title=th.title+" "+(i+1)+"/3";q.status=i==0?"open":"locked";if(q.key)ctx.used.add(q.key);steps.push(q)};
+ if(th.id=="stairs"){const l=qLvlRun(ctx,band,{});if(!l)return null;const pr=qProj(l),b0=pr?best0Of(pr):0,p0=Math.max(20,Math.ceil((b0+5)/10)*10),ps=[p0,p0+10,p0+20];if(ps[2]>100)return null;
+  ps.forEach((p,i)=>fin(qMk("chain",{t:"reach",p},l,{pct:ctx.pct.get(l)}),i,0))}
+ else if(th.id=="skill"){const sk=qSkillOrder(ctx,band)[0];if(sk==null)return null;const ts=["beat","reach","beat"];
+  for(let i=0;i<3;i++){let c=qBuild(ctx,ts[i],band,{sk});if(!c&&ts[i]!="beat")c=qBuild(ctx,"beat",band,{sk});if(!c)return null;fin(c,i)}}
+ else{for(let i=0;i<3;i++){const b=[band[0],band[0],band[1]][i],c=qBuild(ctx,"beat",[b,b],{});if(!c)return null;fin(c,i)}}
+ steps.forEach(q=>Q.used.push(q.key||"x"));return{id:cid,tpl:th.id,title:th.title,n:3,cur:0,done:0,list:steps}}
+function archive(Q,list){list.forEach(q=>{if(q.status!="locked")Q.hist.push({id:q.id,kind:q.kind,type:q.type,goalT:q.goal?q.goal.t:null,sk:q.sk==null?null:q.sk,name:q.name||(q.ch&&q.ch.name)||q.title,status:q.status=="done"?"done":"expired",t:Date.now()})});if(Q.hist.length>200)Q.hist.splice(0,Q.hist.length-200);if(Q.used.length>120)Q.used.splice(0,Q.used.length-120);if(Q.tmpl.length>80)Q.tmpl.splice(0,Q.tmpl.length-80)}
 function rollover(){const Q=qInit(),now=new Date(),dk=dkey(now),mon=mondayOf(now),wk=dkey(mon),base=qBase();let ch=false;
- if(Q.daily.key!=dk){if(Q.daily.key)archive(Q,Q.daily.list);Q.daily={key:null,list:[]};if(base){Q.daily={key:dk,list:genDaily(Q,base,dk)}}ch=true}
+ if(Q.ver!=QV){for(const x of[Q.daily,Q.weekly,Q.special]){archive(Q,x.list);x.list=[];x.key=null}if(Q.chain&&!Q.chain.done)archive(Q,Q.chain.list);Q.chain=null;Q.chainWeek=null;Q.ver=QV;ch=true}
+ if(Q.daily.key!=dk){if(Q.daily.key)archive(Q,Q.daily.list);Q.daily={key:null,list:[]};if(base)Q.daily={key:dk,list:genDaily(Q,base,dk)};ch=true}
  if(Q.weekly.key!=wk){if(Q.weekly.key){archive(Q,Q.weekly.list);archive(Q,Q.special.list)}Q.weekly={key:null,list:[]};Q.special={key:null,list:[]};if(base){Q.weekly={key:wk,list:genWeekly(Q,base,wk)};Q.special={key:wk,list:genSpecial(Q,base,wk)}}ch=true}
  if(base&&!Q.chain&&Q.chainWeek!=wk&&Math.floor(mon.getTime()/6048e5)%2==0){Q.chainWeek=wk;Q.chain=genChain(Q,base,wk);ch=true}
- if(Q.chain&&Q.chain.done&&Q.chain.finishedWeek!=wk&&Q.chain.finishedWeek){}
  if(ch)persist();return Q}
-// Abschluss
-function qDone(q){if(q.status=="done"||q.status=="locked"||P.paid["q:"+q.id])return null;const Q=qInit(),st=Q.stats,before=lvlInfo(totalXP()).n;q.status="done";q.doneAt=Date.now();P.paid["q:"+q.id]=1;let xp=q.xp;P.xpLog.push({t:Date.now(),why:"Quest: "+q.title+(q.name?" ("+q.name+")":""),xp});
- st.total++;st[q.kind]=(st[q.kind]||0)+1;st.types[q.type]=(st.types[q.type]||0)+1;if(q.type=="challenge")st.challenge++;if(q.type=="skill")st.skill++;if(q.cond){st.cond++;if(q.cond=="nopractice")st.nopractice++}if(q.kind=="weekly"&&q.type=="demon")st.weeklyDemon++;
+// ---- Fortschritt und Texte ----
+function goalText(q){const g=q.goal||{},n=q.name||"",x=g.cnt>1?" ("+g.cnt+"×)":"";
+ switch(g.t){case"beat":return"Schaffe einen neuen "+(CLSL[g.cls]||g.cls)+" Demon"+(g.sk!=null?" mit hohem "+K[g.sk]+"-Anteil":"");
+  case"reach":return"Erreiche "+g.p+" % auf "+n+x;case"improve":return"Verbessere deinen Bestwert auf "+n+" von "+g.base+" % auf "+Math.min(100,g.base+g.dl)+" %"+x;
+  case"range":return"Schaffe einen Run von "+g.a+" % bis "+g.b+" % auf "+n+x;case"runs":return"Spiele "+g.n+" normale Runs auf "+n;
+  case"again":return"Wiederhole den geschafften Abschnitt "+g.a+"–"+g.b+" % auf "+n+" erfolgreich"+x;case"section":return"Schaffe den neuen Abschnitt "+g.a+"–"+g.b+" % auf "+n+x;
+  case"chal":return"Schaffe diese Challenge"}return q.title||"Quest"}
+function qProg(q){const g=q.goal;if(!g)return{cur:0,tgt:1,pct:0,txt:""};if(g.t=="beat"||g.t=="chal"){const d=q.status=="done";return{cur:d?1:0,tgt:1,pct:d?100:0,txt:d?"geschafft":"noch offen"}}
+ const pr=qProjFor(q),runs=pr?pr.runs.filter(r=>r.t>=q.created):[],cnt=g.cnt||1,sm=a=>a.reduce((s,r)=>s+(r.c||1),0);let cur=0,tgt=cnt,u="Runs";
+ if(g.t=="reach")cur=sm(runs.filter(r=>r.a==0&&r.b>=g.p));
+ else if(g.t=="improve")cur=sm(runs.filter(r=>r.a==0&&r.b>=g.base+g.dl));
+ else if(g.t=="range"||g.t=="again")cur=sm(runs.filter(r=>r.a<=g.a&&r.b>=g.b));
+ else if(g.t=="section"){cur=sm(runs.filter(r=>r.a<=g.a&&r.b>=g.b));const t=pr&&pr.tasks.find(x=>x.id==g.tid);if(t&&t.s=="done"&&(t.at||0)>=q.created)cur=Math.max(cur,cnt)}
+ else if(g.t=="runs"){tgt=g.n;cur=sm(runs.filter(r=>r.a==0))}
+ cur=Math.min(cur,tgt);return{cur,tgt,pct:Math.round(cur/tgt*100),txt:cur+" / "+tgt+" "+(tgt==1&&g.t!="runs"?"Run":u)}}
+// ---- Skill-Fortschritt: langsam, gedeckelt, abschaltbar (Punkte nur für Skill-Fokus-Quests) ----
+const SKN=s=>6+4*s,SKCAP=2;
+function qSkillPts(q){if(q.sk==null)return 0;const Q=qInit(),wk=Date.now()-7*864e5,same=Q.hist.filter(h=>h.sk===q.sk&&h.status=="done"&&h.t>=wk).length+activeQ(Q).filter(x=>x!==q&&x.status=="done"&&x.sk===q.sk&&(x.doneAt||0)>=wk).length,b=q.kind=="weekly"||q.kind=="special"?2.5:q.kind=="chain"?1.5:1.2;
+ return Math.round(Math.max(.3,b*(.7+.12*q.diff)/(1+.35*same))*10)/10}
+function qSkillGain(q){if(q.sk==null||P.set.qSkill===false)return null;const Q=qInit(),k=q.sk,wk=dkey(mondayOf(new Date()));if(Q.skW.wk!=wk)Q.skW={wk,g:{}};
+ const lv=P.skills[k];if(lv==null)return{k,pts:0,unrated:true};const pts=qSkillPts(q);let cur=(Q.sx.pts[k]||0)+pts,up=null;
+ if(lv>=5)cur=0;else if(cur>=SKN(lv)){const total=Object.values(Q.skW.g).reduce((a,b)=>a+b,0);if(!Q.skW.g[k]&&total<SKCAP){cur-=SKN(lv);P.skills[k]=lv+1;Q.skW.g[k]=1;up=lv+1}else cur=SKN(lv)-.1}
+ Q.sx.pts[k]=Math.round(cur*10)/10;Q.skLog.push({t:Date.now(),k,pts,up});if(Q.skLog.length>60)Q.skLog.shift();return{k,pts,up}}
+
+/* ===== QUESTS v2: Abschluss, Fortschritt, Oberfläche ===== */
+function qDone(q){if(q.status=="done"||q.status=="locked"||P.paid["q:"+q.id])return null;const Q=qInit(),st=Q.stats,before=lvlInfo(totalXP()).n;q.status="done";q.ready=0;q.doneAt=Date.now();P.paid["q:"+q.id]=1;let xp=q.xp;P.xpLog.push({t:Date.now(),why:"Quest: "+q.title+(q.name?" ("+q.name+")":""),xp});
+ const g=q.goal||{t:"beat"},ty=GT[g.t]?g.t:"beat",ids=(q.mods||[]).map(m=>m.id);
+ st.total++;st[q.kind]=(st[q.kind]||0)+1;st.types[ty]=(st.types[ty]||0)+1;if(ty=="chal")st.challenge++;if(q.sk!=null)st.skill++;if(ids.some(i=>i!="skill"))st.cond++;if(ids.includes("nopractice")||ids.includes("normal"))st.nopractice++;if(q.kind=="weekly"&&ty=="beat")st.weeklyDemon++;
  if(q.kind=="daily"){const today=dkey(new Date());if(st.lastDay!=today){const y=new Date();y.setDate(y.getDate()-1);st.streak=st.lastDay==dkey(y)?st.streak+1:1;st.lastDay=today;st.best=Math.max(st.best,st.streak)}}
  let chainDone=null;if(q.chain&&Q.chain&&Q.chain.id==q.chain.id){Q.chain.cur++;if(Q.chain.cur>=Q.chain.n){Q.chain.done=1;P.xpLog.push({t:Date.now(),why:"Quest Chain abgeschlossen: "+Q.chain.title,xp:QXP.chainBonus});xp+=QXP.chainBonus;st.chain++;Q.chainDone.push(Q.chain.tpl);chainDone=Q.chain.title;archive(Q,Q.chain.list)}else{const nx=Q.chain.list[Q.chain.cur];if(nx)nx.status="open"}}
- const got=checkAch(),lv=lvlInfo(totalXP()).n;persist();return{xp,got,chainDone,lv:lv>before?lv:0}}
-function qToast(q,r){toast(`🏁 Quest abgeschlossen: <b>${esc(q.title)}</b> · +${r.xp} XP`,"ach");if(r.chainDone)setTimeout(()=>toast(`⛓️ Quest Chain „${esc(r.chainDone)}“ abgeschlossen: +${QXP.chainBonus} XP`,"ach"),600);if(r.lv)setTimeout(()=>toast("⬆ Level "+r.lv+" erreicht!","lv"),900);r.got.forEach((a,i)=>setTimeout(()=>toast(`${a[1]} Achievement: <b>${esc(a[2])}</b> (+${a[4]} XP)`,"ach"),1300+700*i))}
-let QCTX=null;const qctxHtml=l=>QCTX&&QCTX.cond?`<div class="warn"><b>Quest-Bedingung</b><br>${CONDT[QCTX.cond]}<label class="ck" style="text-transform:none;letter-spacing:0;color:var(--tx);font-size:13px;margin-top:6px"><input type="checkbox" id="fQc" checked> Ich habe die Bedingung eingehalten</label></div>`:"";
+ let sg=null;try{sg=qSkillGain(q)}catch(e){console.error(e)}
+ const got=checkAch(),lv=lvlInfo(totalXP()).n;persist();return{xp,got,chainDone,sg,lv:lv>before?lv:0}}
+function qToast(q,r){let d=0;const nx=(m,c)=>{setTimeout(()=>toast(m,c),d);d+=650};nx(`🏁 Quest abgeschlossen: <b>${esc(q.title)}</b> · +${r.xp} XP`,"ach");
+ if(r.sg&&!r.sg.unrated)nx(r.sg.up?`⬆ <b>${esc(K[r.sg.k])}</b> steigt auf ${r.sg.up}/5 (durch Quests verdient)`:`🎯 ${esc(K[r.sg.k])}: +${r.sg.pts} Skill-Punkte`,"ach");
+ if(r.chainDone)nx(`⛓️ Quest Chain „${esc(r.chainDone)}“ abgeschlossen: +${QXP.chainBonus} XP`,"ach");if(r.lv)nx("⬆ Level "+r.lv+" erreicht!","lv");r.got.forEach(a=>nx(`${a[1]} Achievement: <b>${esc(a[2])}</b> (+${a[4]} XP)`,"ach"))}
+// Bestätigung der Bedingungen im „Demon geschafft“-Dialog (nur wenn die Quest Bedingungen hat, die die App nicht prüfen kann)
+let QCTX=null;const qctxHtml=l=>QCTX&&QCTX.mods&&QCTX.mods.length?`<div class="warn"><b>Quest-Bedingungen</b><ul class="ql">${QCTX.mods.map(m=>`<li>${MODS[m.id].ic} <b>${esc(MODS[m.id].n)}</b>: ${esc(MODS[m.id].d)}</li>`).join("")}</ul><label class="ck" style="text-transform:none;letter-spacing:0;color:var(--tx);font-size:13px;margin-top:6px"><input type="checkbox" id="fQc" checked> Ich habe die Bedingungen eingehalten</label></div>`:"";
 $("dlg2").addEventListener("close",()=>{setTimeout(()=>{QCTX=null},50)});
 const _reg=register;register=function(l,info){const r=_reg(l,info);if(r)try{qOnDone(l)}catch(e){console.error(e)}return r};
-function qOnDone(l){const Q=qInit(),k=lk(l),n1="n"+l.n.toLowerCase();let any=false;for(const q of activeQ(Q)){if(q.status!="open"||q.manual||q.type=="challenge"||!(q.key==k||q.key==n1))continue;
-  if(QCTX&&QCTX.qid==q.id&&QCTX.ok===false)continue;const r=qDone(q);if(r){any=true;setTimeout(()=>qToast(q,r),500)}}if(any&&!$("quest").classList.contains("hid"))renderQuests()}
-// Challenge-Abschluss und manuelle Quests
-function askQuestDone(q){$("dlg2").innerHTML=`<div class="fm" style="padding:18px"><h3 style="margin:0 0 4px">Quest abschließen</h3><p class="note" style="margin:0 0 12px"><b>${esc(q.title)}</b>${q.ch?" · "+esc(q.ch.name):q.name?" · "+esc(q.name):""} · +${q.xp} XP</p>${q.cond?`<div class="warn">${CONDT[q.cond]}</div>`:""}<label class="ck" style="text-transform:none;letter-spacing:0;color:var(--tx);font-size:14px"><input type="checkbox" id="qOk"> Ich habe diese Quest geschafft${q.cond?" und die Bedingung eingehalten":""}</label><div class="g" style="margin-top:8px;gap:8px"><div><label>Attempts (optional)</label><input id="qAt" class="inp" type="number" min="1" style="width:100%"></div><div><label>Bewertung 0–10 (optional)</label><input id="qRt" class="inp" type="number" min="0" max="10" step="0.5" style="width:100%"></div></div><label>Notiz (optional)</label><textarea id="qNo" rows="2" class="inp" style="width:100%"></textarea><div class="row" style="margin-top:12px"><button class="go" style="margin:0;flex:1" id="qGo">Bestätigen</button><button class="lk" id="qCa">Abbrechen</button></div></div>`;
- $("qCa").onclick=()=>$("dlg2").close();$("qGo").onclick=()=>{if(!$("qOk").checked){toast("Bitte bestätige den Abschluss.");return}q.result={att:parseInt($("qAt").value)||null,rt:parseFloat($("qRt").value),note:$("qNo").value.slice(0,300)||null};if(isNaN(q.result.rt))q.result.rt=null;$("dlg2").close();const r=qDone(q);if(r)qToast(q,r);renderQuests();if(!$("prof").classList.contains("hid"))renderProf()};$("dlg2").showModal()}
+const qLive=()=>{if(!$("quest").classList.contains("hid"))renderQuests()};
+const qReadyToast=q=>setTimeout(()=>toast(`🎯 Ziel erreicht: <b>${esc(q.title)}</b>. Bestätige unter Quests, dass du die Bedingungen eingehalten hast.`,"ach"),400);
+// Ein neu eingetragener Demon zählt für höchstens eine Demon-Quest (Vorrang: gewählte Quest, Chain, Daily, Weekly, Special)
+function qOnDone(l){const Q=qInit(),ci=QCL.indexOf(qCls(l)),k=lk(l),n1="n"+l.n.toLowerCase(),pr={chain:0,daily:1,weekly:2,special:3};
+ const hit=q=>{if(q.status!="open"||q.ready||!q.goal)return false;const g=q.goal;if(g.t=="beat")return ci>=QCL.indexOf(g.cls)&&(g.sk==null||l.s[g.sk]>=3);return g.t!="chal"&&g.t!="runs"&&(q.key==k||q.key==n1)&&(g.cnt||1)<=1};
+ const c=activeQ(Q).filter(hit).sort((a,b)=>((QCTX&&QCTX.qid==b.id)-(QCTX&&QCTX.qid==a.id))||(a.goal.t=="beat")-(b.goal.t=="beat")||(pr[a.chain?"chain":a.kind]-pr[b.chain?"chain":b.kind]));
+ const beat=c.filter(q=>q.goal.t=="beat"),pick=[...c.filter(q=>q.goal.t!="beat"),...(beat.length?[beat[0]]:[])];let any=false;
+ for(const q of pick){if(QCTX&&QCTX.qid==q.id&&QCTX.ok===false)continue;
+  if(qAttest(q).length&&!(QCTX&&QCTX.qid==q.id)){q.ready=1;any=true;qReadyToast(q);continue}
+  const r=qDone(q);if(r){any=true;setTimeout(()=>qToast(q,r),500)}}
+ if(any){persist();qLive()}qSweep()}
+// Runs aus dem Training: Ziele prüfen, erledigen oder zur Bestätigung freigeben
+let QSW=false;
+function qSweep(){if(QSW)return;QSW=true;try{const Q=qInit();let any=false;
+ for(let pass=0;pass<4;pass++){let ch=false;for(const q of activeQ(Q)){if(q.status!="open"||q.ready||!q.goal||q.goal.t=="beat"||q.goal.t=="chal")continue;const p=qProg(q);if(p.cur<p.tgt)continue;
+   if(qAttest(q).length){q.ready=1;ch=any=true;qReadyToast(q)}else{const r=qDone(q);if(r){ch=any=true;setTimeout(()=>qToast(q,r),500)}}}if(!ch)break}
+ if(any){persist();qLive()}}finally{QSW=false}}
+const _lr=logRun;logRun=function(a,b,c){const r=_lr(a,b,c);if(r&&!r.err)try{qSweep()}catch(e){console.error(e)}return r};
+// Bestätigungsdialog: Bedingungen und manuelle Quests
+function askQuestDone(q){const at=qAttest(q),isReady=!!q.ready;
+ $("dlg2").innerHTML=`<div class="fm" style="padding:18px"><h3 style="margin:0 0 4px">Quest abschließen</h3><p class="note" style="margin:0 0 10px"><b>${esc(goalText(q))}</b> · +${q.xp} XP</p>${at.length?`<div class="warn"><b>Bedingungen</b><ul class="ql">${at.map(m=>`<li>${MODS[m.id].ic} <b>${esc(MODS[m.id].n)}</b>: ${esc(MODS[m.id].d)}</li>`).join("")}</ul></div>`:""}<label class="ck" style="text-transform:none;letter-spacing:0;color:var(--tx);font-size:14px"><input type="checkbox" id="qOk"> ${isReady?"Ich habe die Bedingungen eingehalten":"Ich habe das Ziel erreicht"+(at.length?" und die Bedingungen eingehalten":"")}</label>${!isReady&&q.goal&&q.goal.t!="chal"?'<p class="note" style="margin:6px 0 0">Dieses Ziel wird sonst automatisch aus deinen Training-Runs erkannt. Die Bestätigung hier ist deine eigene Angabe.</p>':""}<div class="g" style="margin-top:8px;gap:8px"><div><label>Attempts (optional)</label><input id="qAt" class="inp" type="number" min="1" style="width:100%"></div><div><label>Bewertung 0–10 (optional)</label><input id="qRt" class="inp" type="number" min="0" max="10" step="0.5" style="width:100%"></div></div><label>Notiz (optional)</label><textarea id="qNo" rows="2" class="inp" style="width:100%"></textarea><div class="row" style="margin-top:12px"><button class="go" style="margin:0;flex:1" id="qGo">Bestätigen</button>${isReady?'<button class="lk" id="qNo2">Bedingung nicht eingehalten</button>':""}<button class="lk" id="qCa">Abbrechen</button></div></div>`;
+ $("qCa").onclick=()=>$("dlg2").close();
+ if($("qNo2"))$("qNo2").onclick=()=>{q.ready=0;q.created=Date.now();persist();$("dlg2").close();toast("Die Quest bleibt offen, der Fortschritt zählt ab jetzt neu.");renderQuests()};
+ $("qGo").onclick=()=>{if(!$("qOk").checked){toast("Bitte bestätige den Abschluss.");return}q.result={att:parseInt($("qAt").value)||null,rt:parseFloat($("qRt").value),note:$("qNo").value.slice(0,300)||null};if(isNaN(q.result.rt))q.result.rt=null;$("dlg2").close();const r=qDone(q);if(r){qToast(q,r);qSweep()}renderQuests();if(!$("prof").classList.contains("hid"))renderProf()};$("dlg2").showModal()}
 function copyId(id){const t=document.createElement("textarea");t.value=String(id);t.style.cssText="position:fixed;opacity:0";document.body.appendChild(t);t.select();let ok=false;try{ok=document.execCommand("copy")}catch(e){}t.remove();if(!ok&&navigator.clipboard)navigator.clipboard.writeText(String(id)).then(()=>toast("Level-ID kopiert.")).catch(()=>toast("Kopieren nicht möglich. ID: "+id));else toast(ok?"Level-ID kopiert.":"Kopieren nicht möglich. ID: "+id)}
 // Anzeige
 const QS={tab:"daily"};
-function qCard(q){const l=q.key?byKey(q.key):null,id=l&&l.gid?l.gid:q.ch?q.ch.id:null,locked=q.status=="locked",done=q.status=="done",lvName=q.name||(q.ch&&q.ch.name);
- return `<div class="qc ${q.kind} ${done?"done":""} ${locked?"lock":""}"><div class="qh">${l?`<div class="th qth">${cover(l,"q"+q.id)}${thumb(l)}</div>`:`<div class="th qth qch">${q.ch?"🏁":"🎯"}</div>`}</div><div class="qb"><div class="row"><span class="tg">${QL[q.kind]}${q.bonus?" · Bonus":""}</span><span class="tg">${QT[q.type]}</span>${q.skill!=null?`<span class="tg">${esc(K[q.skill])}</span>`:""}${q.cls?`<span class="tg">${esc(q.cls)}</span>`:""}<b style="margin-left:auto">+${q.xp} XP</b></div><h3>${esc(q.title)}</h3><div class="note">${esc(q.desc)}</div>${q.cond?`<div class="warn">${CONDT[q.cond]}</div>`:""}${lvName?`<div style="margin-top:6px">${q.ch?"Challenge":"Level"}: <b>${esc(lvName)}</b> ${l?badge(l):""} <span class="note">· ID ${id||"unbekannt"}${q.ch?" · Difficulty "+esc(q.ch.diff):""}</span></div>`:""}
- <div class="row" style="margin-top:10px">${done?'<span class="tg">✔ erledigt</span>':locked?'<span class="note">🔒 Gesperrt bis zum vorherigen Schritt</span>':`<button class="go" style="margin:0;width:auto;padding:8px 16px" data-qdone="${q.id}">Abschließen</button>`}${id?`<button class="lk" data-qcopy="${id}">ID kopieren</button>`:""}${l?`<button class="lk" data-qinfo="${q.id}">Details</button>`:""}</div></div></div>`}
+const clsLab=(a,b)=>CLSL[QCL[a]]+(a==b?"":"–"+CLSL[QCL[b]]),pips=d=>{const n=clp(Math.round(d*.8),1,5);return "●".repeat(n)+"○".repeat(5-n)};
+const zone=p=>p==null?"":p<.34?"eher leichter Bereich der Klasse":p<.67?"mittlerer Bereich der Klasse":"oberer Bereich der Klasse";
+function qCard(q){const l=q.key?byKey(q.key):null,id=l&&l.gid?l.gid:q.ch?q.ch.id:null,locked=q.status=="locked",done=q.status=="done",g=q.goal||{t:"beat",cls:"easy"},isB=g.t=="beat",isC=g.t=="chal",run=!isB&&!isC,pr=run&&!locked&&!done?qProg(q):null,noTr=run&&l&&!findProj(l),lvName=q.name||(q.ch&&q.ch.name),mods=(q.mods||[]).filter(m=>MODS[m.id]&&m.id!="skill");
+ const clsT=isC?(q.cls?esc(q.cls):""):q.cls?`<span title="${q.cest?"Difficulty aus dem Tier geschätzt":"In-Game-Difficulty"}">${q.cest?"~":""}${esc(CLSL[q.cls]||q.cls)}</span>`:"";
+ return `<div class="qc ${q.kind} ${done?"done":""} ${locked?"lock":""} ${q.ready?"rdy":""}"><div class="qh">${l?`<div class="th qth">${cover(l,"q"+esc(q.id))}${thumb(l)}</div>`:`<div class="th qth qch">${isC?"🏁":"🎯"}</div>`}</div><div class="qb"><div class="row"><span class="tg">${QL[q.kind]}${q.bonus?" · Bonus":""}</span><span class="tg">${esc(GT[g.t]||"Quest")}</span>${q.sk!=null?`<span class="tg">${esc(K[q.sk])}</span>`:""}${clsT?`<span class="tg">${clsT}</span>`:""}<span class="note" title="Quest-Schwierigkeit ${q.diff}" style="margin-left:auto;letter-spacing:2px">${pips(q.diff)}</span><b>+${q.xp} XP</b></div>
+ <h3>${esc(goalText(q))}</h3>${isB&&l?`<div class="note">Vorschlag: <b>${esc(l.n)}</b> ${badge(l)} · ID ${id||"unbekannt"}${q.pct!=null?" · "+zone(q.pct):""}<br>Zählt auch für jeden anderen neuen ${esc(CLSL[g.cls]||"")} Demon (oder härter)${g.sk!=null?" mit "+esc(K[g.sk])+"-Anteil":""}.</div>`:lvName?`<div class="note">${isC?"Challenge":"Level"}: <b>${esc(lvName)}</b> ${l?badge(l):""} · ID ${id||"unbekannt"}${isC&&q.ch?" · Difficulty "+esc(q.ch.diff):""}${q.pct!=null&&l?" · "+zone(q.pct):""}</div>`:""}
+ ${mods.length?`<ul class="ql">${mods.map(m=>`<li>${MODS[m.id].ic} <b>${esc(MODS[m.id].n)}</b>${MODS[m.id].a?' <span class="note">(Selbstangabe)</span>':""}<span class="note"> – ${esc(MODS[m.id].d)}</span></li>`).join("")}</ul>`:""}
+ ${pr?`<div class="prog" style="margin:8px 0 2px"><i style="width:${pr.pct}%"></i></div><div class="note">${esc(pr.txt)}${noTr?" · noch kein Training für dieses Level":""}</div>`:""}
+ ${q.ready?`<div class="warn">Ziel erreicht. Bestätige noch die Bedingungen${q.beaten?" (geschafft: "+esc(q.beaten)+")":""}.</div>`:""}
+ <div class="row" style="margin-top:10px">${done?'<span class="tg">✔ erledigt</span>':locked?'<span class="note">🔒 Gesperrt bis zum vorherigen Schritt</span>':q.ready?`<button class="go" style="margin:0;width:auto;padding:8px 16px" data-qdone="${esc(q.id)}">Bedingungen bestätigen</button>`:`<button class="go" style="margin:0;width:auto;padding:8px 16px" data-qdone="${esc(q.id)}">${isB?"Demon eintragen":"Abschließen"}</button>`}${!done&&!locked&&noTr?`<button class="lk" data-qtrain="${esc(q.id)}">Training starten</button>`:""}${id?`<button class="lk" data-qcopy="${esc(id)}">ID kopieren</button>`:""}${l?`<button class="lk" data-qinfo="${esc(q.id)}">Details</button>`:""}</div></div></div>`}
 const eta=t=>{const m=Math.max(0,Math.round((t-Date.now())/6e4)),d=Math.floor(m/1440),h=Math.floor(m%1440/60);return d?d+" T "+h+" h":h?h+" h "+m%60+" min":m+" min"};
-function renderQuests(){const Q=rollover(),base=qBase(),st=Q.stats,tabs=[["daily","Daily"],["weekly","Weekly"],["special","Special & Chains"],["miles","Meilensteine"],["chal","Challenge-Daten"]];
+function qSkillsHtml(Q){const wk=dkey(mondayOf(new Date())),g=Q.skW.wk==wk?Q.skW.g:{},on=P.set.qSkill!==false;
+ return `<div class="box"><label class="ck" style="text-transform:none;letter-spacing:0;color:var(--tx);font-size:14px"><input type="checkbox" id="qSkillOn" ${on?"checked":""}> Quests dürfen meine Skills langsam verbessern</label><p class="note">Nur Quests mit Skill-Fokus geben Skill-Punkte, Quests ohne Skill nicht. Die Punkte sinken, wenn du denselben Skill in einer Woche mehrfach trainierst, und ein Skill steigt höchstens um eine Stufe pro Woche (insgesamt höchstens ${SKCAP} Stufen pro Woche). Skills ohne Selbsteinschätzung im Profil bekommen keine Punkte. Die Stufe bleibt jederzeit im Profil von dir änderbar.</p></div><div style="margin-top:10px">${K.map((k,i)=>{const lv=P.skills[i],pts=Q.sx.pts[i]||0;
+  return lv==null?`<div class="tk"><div class="row"><b>${esc(k)}</b><span class="note" style="margin-left:auto">nicht eingeschätzt (Profil → Skillprofil)</span></div></div>`:`<div class="tk"><div class="row"><b>${esc(k)}</b><span class="tg">Stufe ${lv}/5</span><span class="note" style="margin-left:auto">${lv>=5?"Maximum erreicht":pts+" / "+SKN(lv)+" Punkte"+(g[i]?" · diese Woche schon aufgestiegen":"")}</span></div>${lv>=5?"":`<div class="prog"><i style="width:${Math.min(100,pts/SKN(lv)*100)}%"></i></div>`}</div>`}).join("")}</div><h3>Verlauf</h3>${Q.skLog.slice(-10).reverse().map(x=>`<div class="note">${new Date(x.t).toLocaleDateString("de-DE")} · ${esc(K[x.k]||"?")} · +${x.pts} Punkte${x.up?" · ⬆ Stufe "+x.up:""}</div>`).join("")||'<div class="note">Noch keine Skill-Punkte durch Quests.</div>'}`}
+function qRegen(){const Q=qInit();let kept=false;if(Q.daily.list.some(q=>q.status=="done"))kept=true;else Q.daily={key:null,list:[]};if(Q.weekly.list.some(q=>q.status=="done")||Q.special.list.some(q=>q.status=="done"))kept=true;else{Q.weekly={key:null,list:[]};Q.special={key:null,list:[]}}persist();renderQuests();if(kept)toast("Bereits abgeschlossene Quests bleiben. Die neue Basis gilt ab dem nächsten Reset.")}
+function renderQuests(){const Q=rollover(),base=qBase(),st=Q.stats,tabs=[["daily","Daily"],["weekly","Weekly"],["special","Special & Chains"],["skills","Skills"],["miles","Meilensteine"],["chal","Challenge-Daten"]];
  let body="";
- if(QS.tab=="daily")body=`<div class="note" style="margin-bottom:10px">Neue Daily Quests in ${eta(nextMidnight().getTime())} (Mitternacht, lokale Zeit) · Streak ${st.streak} ${st.streak==1?"Tag":"Tage"}</div>${Q.daily.list.map(qCard).join("")||'<div class="note">Heute keine Quests (noch keine passende Basis).</div>'}`;
- else if(QS.tab=="weekly")body=`<div class="note" style="margin-bottom:10px">Neue Weekly Quests in ${eta(nextMonday().getTime())} (montags um Mitternacht)</div>${Q.weekly.list.map(qCard).join("")||'<div class="note">Diese Woche keine Quests.</div>'}`;
+ if(QS.tab=="daily")body=`<div class="note" style="margin-bottom:10px">Neue Daily Quests in ${eta(nextMidnight().getTime())} (Mitternacht, lokale Zeit) · Streak ${st.streak} ${st.streak==1?"Tag":"Tage"}${base?" · Bereich: "+clsLab(...qBand(base,"daily")):""}</div>${Q.daily.list.map(qCard).join("")||'<div class="note">Heute keine Quests (noch keine passende Basis oder keine passenden Level).</div>'}`;
+ else if(QS.tab=="weekly")body=`<div class="note" style="margin-bottom:10px">Neue Weekly Quests in ${eta(nextMonday().getTime())} (montags um Mitternacht)${base?" · Bereich: "+clsLab(...qBand(base,"weekly")):""}</div>${Q.weekly.list.map(qCard).join("")||'<div class="note">Diese Woche keine Quests.</div>'}`;
  else if(QS.tab=="special"){const c=Q.chain;body=`<h3 style="margin-top:0">Special Quest der Woche</h3>${Q.special.list.map(qCard).join("")||'<div class="note">Diese Woche keine Special Quest.</div>'}<h3>Quest Chain</h3>${c&&!c.done?`<div class="note" style="margin-bottom:8px"><b>${esc(c.title)}</b> · Schritt ${c.cur+1} von ${c.n} · Bonus am Ende: +${QXP.chainBonus} XP <button class="lk" data-qabandon="1">Chain abbrechen</button></div>${c.list.map(qCard).join("")}`:'<div class="note">Keine aktive Chain. Chains erscheinen gelegentlich (etwa alle zwei Wochen), sobald genug passende Level vorhanden sind.</div>'}`}
+ else if(QS.tab=="skills")body=qSkillsHtml(Q);
  else if(QS.tab=="miles"){const qa=ACH.filter(a=>ACAT(a[0])=="Quests");body=`<div class="stats">${[["Quests gesamt",st.total],["Daily",st.daily],["Weekly",st.weekly],["Special",st.special],["Chains",st.chain],["Beste Streak",st.best]].map(x=>`<div><b>${x[1]}</b><span>${x[0]}</span></div>`).join("")}</div><h3>Quest-Achievements (${qa.filter(a=>P.ach[a[0]]).length}/${qa.length})</h3><div class="ag">${qa.map(achCard).join("")}</div><h3>Verlauf</h3>${Q.hist.slice(-15).reverse().map(h=>`<div class="note">${new Date(h.t).toLocaleDateString("de-DE")} · ${esc(QL[h.kind]||h.kind)} · ${esc(h.name)} · ${h.status=="done"?"✔ erledigt":"abgelaufen"}</div>`).join("")||'<div class="note">Noch kein Verlauf.</div>'}`}
  else body=`<div class="box"><h3 style="margin-top:0">Challenge-Datenbank (${CH.length})</h3><p class="note">Challenge-Quests entstehen nur aus Einträgen mit bekannter Difficulty. Es werden keine Challenges erfunden. Die Difficulty muss eine dieser sein: ${CHD.join(", ")}. Zuordnung zur Spielstärke: ${Object.entries(CHMAP).map(([k,v])=>k+" → "+v.join("/")).join("; ")}.</p>
  <div class="g" style="gap:8px"><input id="cN" class="inp" placeholder="Name" maxlength="80"><input id="cI" class="inp" type="number" placeholder="Level-ID"><select id="cD" class="inp">${CHD.map(d=>`<option>${d}</option>`).join("")}</select><select id="cS" class="inp">${K.map((k,i)=>`<option value="${i}">${esc(k)}</option>`).join("")}</select></div><input id="cT" class="inp" placeholder="Kurzbeschreibung (optional)" maxlength="200" style="width:100%;margin-top:8px"><div class="row" style="margin-top:8px"><button class="lk" id="cAdd">Challenge hinzufügen</button><span class="note" id="cM"></span></div>
  <h3>Import (JSON)</h3><p class="note">Liste mit den Feldern id, name, difficulty (oder diff) und optional skill. Fehlt der Skill, wird er aus dem Namen abgeleitet (zum Beispiel „Wave Challenge“) und als abgeleitet markiert. Einträge ohne bekannte Difficulty werden verworfen.</p><input type="file" id="cF" accept=".json"><textarea id="cJ" rows="3" placeholder="JSON hier einfügen …"></textarea><div class="row" style="margin-top:8px"><button class="lk" id="cImp">Importieren</button></div>
  ${CH.length?`<h3>Einträge</h3><div style="max-height:260px;overflow:auto">${CH.slice(0,200).map(c=>`<div class="row" style="margin:4px 0"><b style="flex:1">${esc(c.name)}</b><span class="note">ID ${c.id} · ${esc(c.diff)} · ${esc(K[c.skill])}${c.inf?" (Skill aus Namen)":""}</span><button class="lk" data-cdel="${c.id}">✕</button></div>`).join("")}</div>`:""}</div>`;
- $("qC").innerHTML=`${base?"":`<div class="warn"><b>Noch keine Basis für passende Quests.</b> Trage einen geschafften Demon ein (Profil, Demons oder Road) oder wähle hier dein aktuelles Hardest:<div class="ac" id="qBaseAc" style="margin-top:8px"></div></div>`}
- <div class="row" style="margin-bottom:12px"><div class="row" style="flex:1;flex-wrap:wrap">${tabs.map(t=>`<button class="lk ${QS.tab==t[0]?"on":""}" data-qtab="${t[0]}">${t[1]}</button>`).join("")}</div><label class="note" style="margin:0">Schwierigkeit <select class="inp" id="qOff" style="padding:5px 8px"><option value="-1">etwas leichter</option><option value="0">normal</option><option value="1">etwas fordernder</option></select></label></div>${base&&QS.tab!="chal"&&QS.tab!="miles"?`<div class="note" style="margin-bottom:10px">Basis: komfortable Schwierigkeit aus deinen letzten Abschlüssen, Hardest ${P.hard&&P.done[P.hard]?esc(P.done[P.hard].n):"–"}.</div>`:""}${body}`;
- $("qOff").value=String(+P.set.qOff||0);if($("qBaseAc"))AC($("qBaseAc"),"Mein aktuelles Hardest …",i=>{P.set.qBase=lk(L[i]);Q.daily.key=null;Q.weekly.key=null;persist();renderQuests()});animBars($("qC"))}
+ const hd=base?`<div class="box" style="margin-bottom:12px"><div class="row" style="flex-wrap:wrap;gap:10px"><div style="flex:1;min-width:200px">Basis: Hardest <b>${base.hardName?esc(base.hardName):"manuell gewählt"}</b> · <b>${esc(CLSL[base.cls])}</b> Demon${base.est?' <span class="note" title="Die In-Game-Difficulty ist nicht bekannt und wurde aus dem Tier geschätzt. Du kannst sie rechts festlegen.">(geschätzt)</span>':""}<div class="note">Daily: ${clsLab(...qBand(base,"daily"))} · Weekly und Special: ${clsLab(...qBand(base,"weekly"))}. Je leichter dein Hardest, desto leichter die Quests.</div></div><label class="note" style="margin:0">Hardest-Klasse <select class="inp" id="qHc" style="padding:5px 8px"><option value="">automatisch</option>${QCL.map(c=>`<option value="${c}">${CLSL[c]}</option>`).join("")}</select></label></div></div>`:`<div class="warn"><b>Noch keine Basis für passende Quests.</b> Trage einen geschafften Demon ein (Profil, Demons oder Road) oder wähle hier dein aktuelles Hardest:<div class="ac" id="qBaseAc" style="margin-top:8px"></div></div>`;
+ $("qC").innerHTML=`${hd}<div class="row" style="margin-bottom:12px"><div class="row" style="flex:1;flex-wrap:wrap">${tabs.map(t=>`<button class="lk ${QS.tab==t[0]?"on":""}" data-qtab="${t[0]}">${t[1]}</button>`).join("")}</div><label class="note" style="margin:0">Schwierigkeit <select class="inp" id="qOff" style="padding:5px 8px"><option value="-1">etwas leichter</option><option value="0">normal</option><option value="1">etwas fordernder</option></select></label></div>${body}`;
+ $("qOff").value=String(+P.set.qOff||0);if($("qHc"))$("qHc").value=QCL.includes(P.set.qHc)?P.set.qHc:"";
+ if($("qBaseAc"))AC($("qBaseAc"),"Mein aktuelles Hardest …",i=>{P.set.qBase=lk(L[i]);qRegen()});animBars($("qC"))}
 $("qC").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;const d=b.dataset,Q=qInit();
  if(d.qtab){QS.tab=d.qtab;renderQuests()}
  else if(d.qcopy)copyId(d.qcopy)
- else if(d.qinfo){const q=activeQ(Q).find(x=>x.id==d.qinfo),l=q&&byKey(q.key);if(l)detail(l)}
- else if(d.qdone){const q=activeQ(Q).find(x=>x.id==d.qdone);if(!q)return;const l=q.key&&byKey(q.key);if(q.type=="challenge"||q.manual||!l)askQuestDone(q);else{QCTX={qid:q.id,cond:q.cond};askDone(l)}}
+ else if(d.qinfo){const q=activeQ(Q).find(x=>x.id==d.qinfo),l=q&&q.key&&byKey(q.key);if(l)detail(l)}
+ else if(d.qtrain){const q=activeQ(Q).find(x=>x.id==d.qtrain),l=q&&q.key&&byKey(q.key);if(l)startTraining(l)}
+ else if(d.qdone){const q=activeQ(Q).find(x=>x.id==d.qdone);if(!q||q.status!="open")return;const l=q.key&&byKey(q.key);if(q.goal&&q.goal.t=="beat"&&!q.ready&&l){QCTX={qid:q.id,mods:qAttest(q)};askDone(l)}else askQuestDone(q)}
  else if(d.qabandon){if(!d.arm){b.dataset.arm=1;b.textContent="Sicher?";return}archive(Q,Q.chain.list);Q.chain=null;persist();renderQuests()}
  else if(b.id=="cAdd"){const c=normCH({id:$("cI").value,name:$("cN").value,diff:$("cD").value,skill:+$("cS").value,desc:$("cT").value});if(!c){$("cM").textContent="Ungültig: Name, ID und Difficulty sind Pflicht.";return}if(CH.some(x=>x.id==c.id)){$("cM").textContent="ID existiert schon.";return}CH.push(c);saveCH();renderQuests()}
  else if(b.id=="cImp"){let a;try{a=JSON.parse($("cJ").value)}catch(x){$("cM")&&($("cM").textContent="Keine gültige JSON-Datei.");toast("Keine gültige JSON-Datei.");return}const r=addCH(a);toast(`${r.n} Challenges importiert, ${r.bad} verworfen (unbekannte Difficulty oder Skill).`);renderQuests()}
  else if(d.cdel){CH=CH.filter(x=>x.id!=d.cdel);saveCH();renderQuests()}});
-$("qC").addEventListener("change",e=>{if(e.target.id=="qOff"){P.set.qOff=+e.target.value;persist()}else if(e.target.id=="cF"){const f=e.target.files[0];if(f)f.text().then(t=>{$("cJ").value=t})}});
+$("qC").addEventListener("change",e=>{const t=e.target;if(t.id=="qOff"){P.set.qOff=+t.value;persist()}else if(t.id=="qHc"){P.set.qHc=QCL.includes(t.value)?t.value:null;persist();qRegen()}else if(t.id=="qSkillOn"){P.set.qSkill=t.checked;persist()}else if(t.id=="cF"){const f=t.files[0];if(f)f.text().then(x=>{$("cJ").value=x})}});
 // Quest-Achievements
 const qs=()=>qInit().stats;
-ACH.push(["qd1","📅","Daily Starter","Erste Daily Quest abgeschlossen",40,()=>[qs().daily,1]],["qd10","🗓️","Daily Grinder","10 Daily Quests abgeschlossen",200,()=>[qs().daily,10]],["qw10","📆","Weekly Warrior","10 Weekly Quests abgeschlossen",400,()=>[qs().weekly,10]],["qwd5","🏅","Weekly Champion","5 Weekly Demons abgeschlossen",500,()=>[qs().weeklyDemon,5]],["qh50","🎖️","Quest Hunter","50 Quests abgeschlossen",800,()=>[qs().total,50]],["qc25","🏁","Challenge Seeker","25 Challenge-Quests abgeschlossen",600,()=>[qs().challenge,25]],["qs3","👁️","Sight Reader","3 Quests ohne Practice Mode geschafft",300,()=>[qs().nopractice,3]],["qst7","🔥","Dedicated","7 Tage in Folge eine Daily Quest geschafft",500,()=>[qs().best,7]],["qch1","⛓️","Chain Finisher","Eine Quest Chain abgeschlossen",400,()=>[qs().chain,1]],["qm","🧭","Quest Master","5 verschiedene Quest-Kategorien abgeschlossen",600,()=>[Object.keys(qs().types).filter(k=>qs().types[k]>0).length+(qs().special>0?1:0)+(qs().chain>0?1:0),5]]);
+ACH.push(["qd1","📅","Daily Starter","Erste Daily Quest abgeschlossen",40,()=>[qs().daily,1]],["qd10","🗓️","Daily Grinder","10 Daily Quests abgeschlossen",200,()=>[qs().daily,10]],["qw10","📆","Weekly Warrior","10 Weekly Quests abgeschlossen",400,()=>[qs().weekly,10]],["qwd5","🏅","Weekly Champion","5 Weekly-Demon-Quests abgeschlossen",500,()=>[qs().weeklyDemon,5]],["qh50","🎖️","Quest Hunter","50 Quests abgeschlossen",800,()=>[qs().total,50]],["qc25","🏁","Challenge Seeker","25 Challenge-Quests abgeschlossen",600,()=>[qs().challenge,25]],["qs3","👁️","Sight Reader","3 Quests ohne Practice Mode geschafft",300,()=>[qs().nopractice,3]],["qst7","🔥","Dedicated","7 Tage in Folge eine Daily Quest geschafft",500,()=>[qs().best,7]],["qch1","⛓️","Chain Finisher","Eine Quest Chain abgeschlossen",400,()=>[qs().chain,1]],["qm","🧭","Quest Master","5 verschiedene Quest-Arten abgeschlossen",600,()=>[Object.keys(qs().types).filter(k=>GT[k]&&qs().types[k]>0).length+(qs().special>0?1:0)+(qs().chain>0?1:0),5]]);
 
 Object.assign(window,{askDone,startTraining,editProfile,L});window.__ready=true;
 })().catch(e=>{document.body.insertAdjacentHTML("afterbegin","<pre style='color:#f88;padding:12px;white-space:pre-wrap'>Startfehler: "+String(e&&e.message||e).replace(/[<&]/g,"")+"</pre>");console.error(e)});
